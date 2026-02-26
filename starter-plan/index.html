@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Starter Plan | Simple Fitness & Productivity Framework</title>
+<meta name="description" content="Download the free Starter Plan built for young professionals. Simple routines. Clear structure. Visible progress.">
+
+<link rel="icon" href="../assets/images/logo.svg">
+
+<style>
+:root {
+    --bg: #ffffff;
+    --text: #111111;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #111111;
+    --radius: 10px;
+    --max-width: 1100px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.nav-links {
+    display: none;
+    gap: 24px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.hero {
+    padding: 80px 0 40px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: var(--muted);
+}
+
+.form-section {
+    padding: 40px 0 80px;
+}
+
+.form-box {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-box input {
+    padding: 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    font-size: 1rem;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: 1px solid var(--text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--text);
+    color: white;
+}
+
+.btn-primary:hover { opacity: 0.9; }
+
+.benefits {
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+}
+
+.benefits-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.benefit-card {
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: var(--radius);
+    transition: 0.25s ease;
+}
+
+.benefit-card:hover {
+    border-color: var(--text);
+}
+
+.benefit-card h3 {
+    margin-bottom: 12px;
+}
+
+.benefit-card p {
+    color: var(--muted);
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.success-box {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-top: 20px;
+}
+
+@media(min-width: 768px) {
+    .nav-links { display: flex; }
+    .hero h1 { font-size: 3rem; }
+    .benefits-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <a href="/" aria-label="Homepage">
+            <img src="../assets/images/logo.svg" alt="Logo" height="32">
+        </a>
+        <div class="nav-links">
+            <a href="/about/">About</a>
+            <a href="/blog/">Blog</a>
+            <a href="/resources/">Resources</a>
+            <a href="/media-kit/">Media Kit</a>
+        </div>
+    </div>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="container">
+        <h1>Your 7-Day Starter Plan</h1>
+        <p>A structured, beginner-friendly system for fitness and productivity. No guesswork. No overwhelm.</p>
+    </div>
+</section>
+
+<section class="form-section">
+    <div class="container">
+        <form class="form-box" id="starterForm" aria-label="Starter Plan Download Form">
+            <input type="text" id="name" placeholder="First Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <button type="submit" class="btn btn-primary">Get the Plan</button>
+        </form>
+
+        <div class="success-box" id="successBox">
+            <h3>Plan Sent.</h3>
+            <p>Check your inbox for the download link.</p>
+        </div>
+    </div>
+</section>
+
+<section class="benefits">
+    <div class="container">
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3>Daily Structure</h3>
+                <p>Clear, manageable routines designed for busy professionals.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Visible Tracking</h3>
+                <p>Simple progress markers so you see improvement fast.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>No Overwhelm</h3>
+                <p>Minimalist execution framework. Start immediately.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        © 2026 Practical Systems |
+        <a href="/privacy/">Privacy</a> |
+        <a href="/terms/">Terms</a>
+    </div>
+</footer>
+
+<script>
+const form = document.getElementById("starterForm");
+const successBox = document.getElementById("successBox");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    if(name.length > 1 && email.includes("@")) {
+
+        // Simulated ConvertKit integration placeholder
+        // Replace with real ConvertKit endpoint when deploying live
+
+        form.style.display = "none";
+        successBox.style.display = "block";
+
+    } else {
+        alert("Please enter valid information.");
+    }
+});
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Free Starter Plan",
+  "description": "Download the free 7-day starter plan for fitness and productivity."
+}
+</script>
+
+</body>
+</html>

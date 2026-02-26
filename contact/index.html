@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Practical Systems</title>
+<meta name="description" content="General inquiries, audience support, and press contact for Practical Systems.">
+
+<link rel="icon" href="../assets/images/logo.svg">
+
+<style>
+:root {
+    --bg: #ffffff;
+    --text: #111111;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --radius: 10px;
+    --max-width: 900px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.nav-links {
+    display: none;
+    gap: 24px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.hero {
+    padding: 80px 0 40px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.form-section {
+    padding: 60px 0 100px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+input, select, textarea {
+    padding: 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    font-size: 1rem;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: 1px solid var(--text);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--text);
+    color: white;
+}
+
+.btn-primary:hover { opacity: 0.9; }
+
+.notice {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.success-box {
+    display: none;
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: var(--radius);
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+@media(min-width: 768px) {
+    .nav-links { display: flex; }
+    .hero h1 { font-size: 3rem; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <a href="/" aria-label="Homepage">
+            <img src="../assets/images/logo.svg" alt="Logo" height="32">
+        </a>
+        <div class="nav-links">
+            <a href="/about/">About</a>
+            <a href="/blog/">Blog</a>
+            <a href="/resources/">Resources</a>
+            <a href="/media-kit/">Media Kit</a>
+        </div>
+    </div>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="container">
+        <h1>Contact</h1>
+        <p>For general inquiries, audience support, or press requests.</p>
+    </div>
+</section>
+
+<section class="form-section">
+    <div class="container">
+
+        <form id="contactForm">
+
+            <div>
+                <label>Full Name</label>
+                <input type="text" required>
+            </div>
+
+            <div>
+                <label>Email</label>
+                <input type="email" required>
+            </div>
+
+            <div>
+                <label>Inquiry Type</label>
+                <select id="inquiryType" required>
+                    <option value="">Select type</option>
+                    <option value="general">General Question</option>
+                    <option value="press">Press / Media</option>
+                    <option value="support">Audience Support</option>
+                    <option value="brand">Brand Partnership</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Message</label>
+                <textarea required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+
+        </form>
+
+        <div class="success-box" id="successBox">
+            Message received. Expect a response within 2–4 business days.
+        </div>
+
+        <div class="notice">
+            Brand partnerships should use the structured collaboration form.
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        © 2026 Practical Systems |
+        <a href="/privacy/">Privacy</a> |
+        <a href="/terms/">Terms</a>
+    </div>
+</footer>
+
+<script>
+const form = document.getElementById("contactForm");
+const successBox = document.getElementById("successBox");
+const inquiryType = document.getElementById("inquiryType");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    if(inquiryType.value === "brand") {
+        window.location.href = "/brand-collab/";
+        return;
+    }
+
+    form.style.display = "none";
+    successBox.style.display = "block";
+});
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Practical Systems"
+}
+</script>
+
+</body>
+</html>
