@@ -1,6 +1,368 @@
 (function () {
     "use strict";
 
+    var editorState = {
+        mode: "content",
+        pendingContent: {},
+        pendingStyle: {},
+        panel: null,
+        status: null,
+        styleType: null,
+        colorInput: null,
+        isAuthenticated: false
+    };
+
+    function currentPageKey() {
+        return window.location.pathname;
+    }
+
+    function apiRequest(url, options) {
+        return fetch(url, Object.assign({ credentials: "same-origin" }, options || {})).then(function (response) {
+            return response
+                .json()
+                .catch(function () {
+                    return {};
+                })
+                .then(function (data) {
+                    if (!response.ok) {
+                        throw new Error(data.error || "Request failed");
+                    }
+                    return data;
+                });
+        });
+    }
+
+    function checkEditorSession() {
+        return apiRequest("/api/editor/session")
+            .then(function (data) {
+                editorState.isAuthenticated = Boolean(data.authenticated);
+                return editorState.isAuthenticated;
+            })
+            .catch(function () {
+                editorState.isAuthenticated = false;
+                return false;
+            });
+    }
+
+    function showEditorStatus(message, isError) {
+        if (!editorState.status) {
+            return;
+        }
+
+        editorState.status.textContent = message;
+        editorState.status.classList.toggle("is-error", Boolean(isError));
+    }
+
+    function getSelectorForElement(element) {
+        if (!element || element === document.body || element === document.documentElement) {
+            return "body";
+        }
+
+        if (element.id) {
+            return "#" + element.id;
+        }
+
+        var parts = [];
+        var current = element;
+
+        while (current && current !== document.body) {
+            var tag = current.tagName.toLowerCase();
+            var parent = current.parentElement;
+            var index = 1;
+
+            if (parent) {
+                var sibling = current;
+                while ((sibling = sibling.previousElementSibling)) {
+                    if (sibling.tagName === current.tagName) {
+                        index += 1;
+                    }
+                }
+            }
+
+            parts.unshift(tag + ":nth-of-type(" + index + ")");
+            current = parent;
+        }
+
+        return "body > " + parts.join(" > ");
+    }
+
+    function applyEditorEditsForPage() {
+        return apiRequest("/api/editor/edits?page=" + encodeURIComponent(currentPageKey()))
+            .then(function (data) {
+                var pageContent = data.content || {};
+                var pageStyle = data.style || {};
+
+                Object.keys(pageContent).forEach(function (selector) {
+                    var element = document.querySelector(selector);
+                    if (element) {
+                        element.textContent = pageContent[selector];
+                    }
+                });
+
+                Object.keys(pageStyle).forEach(function (selector) {
+                    var element = document.querySelector(selector);
+                    var styleObj = pageStyle[selector];
+
+                    if (!element || !styleObj) {
+                        return;
+                    }
+
+                    Object.keys(styleObj).forEach(function (property) {
+                        element.style[property] = styleObj[property];
+                    });
+                });
+            })
+            .catch(function () {
+                return null;
+            });
+    }
+
+    function saveEditorChanges() {
+        var hasChanges = Object.keys(editorState.pendingContent).length > 0 || Object.keys(editorState.pendingStyle).length > 0;
+
+        if (!hasChanges) {
+            showEditorStatus("No pending edits to save.", false);
+            return;
+        }
+
+        apiRequest("/api/editor/edits", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                page: currentPageKey(),
+                content: editorState.pendingContent,
+                style: editorState.pendingStyle
+            })
+        })
+            .then(function () {
+                editorState.pendingContent = {};
+                editorState.pendingStyle = {};
+                showEditorStatus("Edits saved to server for this page.", false);
+            })
+            .catch(function (error) {
+                showEditorStatus(error.message || "Failed to save edits.", true);
+            });
+    }
+
+    function setEditorMode(mode) {
+        editorState.mode = mode;
+
+        if (!editorState.panel) {
+            return;
+        }
+
+        var contentBtn = editorState.panel.querySelector('[data-editor-mode="content"]');
+        var styleBtn = editorState.panel.querySelector('[data-editor-mode="style"]');
+        var styleControls = editorState.panel.querySelector(".site-editor-style-controls");
+
+        if (contentBtn && styleBtn) {
+            contentBtn.classList.toggle("active", mode === "content");
+            styleBtn.classList.toggle("active", mode === "style");
+        }
+
+        if (styleControls) {
+            styleControls.classList.toggle("hidden", mode !== "style");
+        }
+
+        showEditorStatus(
+            mode === "content"
+                ? "Content mode active. Double-click text to edit."
+                : "Style mode active. Pick a color and double-click an element.",
+            false
+        );
+    }
+
+    function initEditorPanel() {
+        if (!editorState.isAuthenticated) {
+            return;
+        }
+
+        var panel = document.createElement("aside");
+        panel.className = "site-editor-panel";
+        panel.innerHTML =
+            '<h3>Editor Mode</h3>' +
+            '<p class="site-editor-help">Double-click page elements to edit.</p>' +
+            '<div class="site-editor-modes">' +
+            '  <button type="button" class="site-editor-btn active" data-editor-mode="content">Content</button>' +
+            '  <button type="button" class="site-editor-btn" data-editor-mode="style">Style</button>' +
+            '</div>' +
+            '<div class="site-editor-style-controls hidden">' +
+            '  <label for="siteEditorStyleType">Color Type</label>' +
+            '  <select id="siteEditorStyleType">' +
+            '    <option value="color">Text Color</option>' +
+            '    <option value="backgroundColor">Background Color</option>' +
+            '    <option value="borderColor">Border Color</option>' +
+            '  </select>' +
+            '  <input id="siteEditorColor" type="color" value="#5da3ff" aria-label="Pick a color">' +
+            '</div>' +
+            '<div class="site-editor-actions">' +
+            '  <button type="button" class="site-editor-btn primary" id="siteEditorSave">Save Edits</button>' +
+            '  <button type="button" class="site-editor-btn" id="siteEditorLogout">Log Out</button>' +
+            '</div>' +
+            '<p class="site-editor-status" id="siteEditorStatus">Content mode active. Double-click text to edit.</p>';
+
+        document.body.appendChild(panel);
+
+        editorState.panel = panel;
+        editorState.status = panel.querySelector("#siteEditorStatus");
+        editorState.styleType = panel.querySelector("#siteEditorStyleType");
+        editorState.colorInput = panel.querySelector("#siteEditorColor");
+
+        panel.addEventListener("click", function (event) {
+            var modeButton = event.target.closest("[data-editor-mode]");
+            if (modeButton) {
+                setEditorMode(modeButton.getAttribute("data-editor-mode"));
+                return;
+            }
+
+            if (event.target.id === "siteEditorSave") {
+                saveEditorChanges();
+                return;
+            }
+
+            if (event.target.id === "siteEditorLogout") {
+                apiRequest("/api/editor/logout", { method: "POST" })
+                    .catch(function () {
+                        return null;
+                    })
+                    .then(function () {
+                        window.location.href = "/editor/";
+                    });
+            }
+        });
+
+        setEditorMode("content");
+
+        document.addEventListener(
+            "dblclick",
+            function (event) {
+                if (!editorState.panel || editorState.panel.contains(event.target)) {
+                    return;
+                }
+
+                if (editorState.mode === "content") {
+                    handleContentDoubleClick(event);
+                } else {
+                    handleStyleDoubleClick(event);
+                }
+            },
+            true
+        );
+    }
+
+    function handleContentDoubleClick(event) {
+        var editable = event.target.closest(
+            "h1, h2, h3, h4, h5, h6, p, a, li, button, label, span, small, strong"
+        );
+
+        if (!editable || editable.closest("script") || editable.closest("style")) {
+            return;
+        }
+
+        event.preventDefault();
+
+        if (editable.isContentEditable) {
+            return;
+        }
+
+        editable.setAttribute("contenteditable", "true");
+        editable.classList.add("is-editor-active");
+        editable.focus();
+
+        var range = document.createRange();
+        range.selectNodeContents(editable);
+        range.collapse(false);
+        var selection = window.getSelection();
+        if (selection) {
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+
+        editable.addEventListener(
+            "blur",
+            function () {
+                var selector = getSelectorForElement(editable);
+                editorState.pendingContent[selector] = editable.textContent;
+                editable.removeAttribute("contenteditable");
+                editable.classList.remove("is-editor-active");
+                showEditorStatus("Content updated. Click Save Edits to publish.", false);
+            },
+            { once: true }
+        );
+    }
+
+    function handleStyleDoubleClick(event) {
+        var target = event.target;
+
+        if (!target || target === document.body || target === document.documentElement) {
+            return;
+        }
+
+        event.preventDefault();
+
+        var property = editorState.styleType ? editorState.styleType.value : "color";
+        var color = editorState.colorInput ? editorState.colorInput.value : "#5da3ff";
+        var selector = getSelectorForElement(target);
+
+        target.style[property] = color;
+
+        if (!editorState.pendingStyle[selector]) {
+            editorState.pendingStyle[selector] = {};
+        }
+
+        editorState.pendingStyle[selector][property] = color;
+        showEditorStatus("Style updated. Click Save Edits to publish.", false);
+    }
+
+    function initEditorLoginPage() {
+        var form = document.getElementById("editorLoginForm");
+        var usernameInput = document.getElementById("editorUsername");
+        var passwordInput = document.getElementById("editorPassword");
+        var message = document.getElementById("editorLoginMessage");
+
+        if (!form || !usernameInput || !passwordInput || !message) {
+            return;
+        }
+
+        checkEditorSession().then(function (authenticated) {
+            if (authenticated) {
+                message.textContent = "Already logged in. Redirecting...";
+                message.style.color = "#5da3ff";
+                window.setTimeout(function () {
+                    window.location.href = "/";
+                }, 400);
+            }
+        });
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            apiRequest("/api/editor/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: usernameInput.value.trim(),
+                    password: passwordInput.value
+                })
+            })
+                .then(function () {
+                    message.textContent = "Login successful. Redirecting...";
+                    message.style.color = "#5da3ff";
+                    window.setTimeout(function () {
+                        window.location.href = "/";
+                    }, 300);
+                })
+                .catch(function () {
+                    message.textContent = "Invalid login credentials.";
+                    message.style.color = "#ff7b7b";
+                });
+        });
+    }
+
     function initMotion() {
         var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         var revealTargets = document.querySelectorAll(
@@ -255,47 +617,66 @@
         });
     }
 
-    var body = document.body;
+    function initPageFeatures(body) {
+        if (body.classList.contains("page-home")) {
+            initHomePage();
+        }
 
-    if (!body) {
-        return;
+        if (body.classList.contains("page-about")) {
+            initAboutPage();
+        }
+
+        if (body.classList.contains("page-blog")) {
+            initBlogPage();
+        }
+
+        if (body.classList.contains("page-brand-collab")) {
+            initBrandCollabPage();
+        }
+
+        if (body.classList.contains("page-contact")) {
+            initContactPage();
+        }
+
+        if (body.classList.contains("page-media-kit")) {
+            initMediaKitPage();
+        }
+
+        if (body.classList.contains("page-premium")) {
+            initPremiumPage();
+        }
+
+        if (body.classList.contains("page-resources")) {
+            initResourcesPage();
+        }
+
+        if (body.classList.contains("page-starter-plan")) {
+            initStarterPlanPage();
+        }
     }
 
-    initMotion();
+    function boot() {
+        var body = document.body;
 
-    if (body.classList.contains("page-home")) {
-        initHomePage();
+        if (!body) {
+            return;
+        }
+
+        applyEditorEditsForPage().then(function () {
+            initMotion();
+            initPageFeatures(body);
+
+            if (body.classList.contains("page-editor-login")) {
+                initEditorLoginPage();
+            }
+
+            checkEditorSession().then(function () {
+                if (!body.classList.contains("page-editor-login")) {
+                    initEditorPanel();
+                }
+            });
+        });
     }
 
-    if (body.classList.contains("page-about")) {
-        initAboutPage();
-    }
-
-    if (body.classList.contains("page-blog")) {
-        initBlogPage();
-    }
-
-    if (body.classList.contains("page-brand-collab")) {
-        initBrandCollabPage();
-    }
-
-    if (body.classList.contains("page-contact")) {
-        initContactPage();
-    }
-
-    if (body.classList.contains("page-media-kit")) {
-        initMediaKitPage();
-    }
-
-    if (body.classList.contains("page-premium")) {
-        initPremiumPage();
-    }
-
-    if (body.classList.contains("page-resources")) {
-        initResourcesPage();
-    }
-
-    if (body.classList.contains("page-starter-plan")) {
-        initStarterPlanPage();
-    }
+    boot();
 })();

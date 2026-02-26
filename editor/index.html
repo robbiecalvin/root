@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editor Login | Practical Systems</title>
+<meta name="description" content="Secure editor login for Practical Systems content and style editing mode.">
+
+<link rel="icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/assets/style/style.css">
+<script src="/assets/scripts/script.js" defer></script>
+</head>
+
+<body class="page-editor-login">
+<header>
+    <div class="container nav">
+        <a href="/" aria-label="Homepage">
+            <img src="/assets/images/logo.png" alt="Logo" height="32">
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/blog/">Blog</a>
+        </div>
+    </div>
+</header>
+
+<main>
+<section class="editor-login-wrap">
+    <div class="container">
+        <div class="editor-login-card">
+            <h1>Editor Access</h1>
+            <p>Log in to unlock on-page content and style editing mode.</p>
+
+            <form id="editorLoginForm" aria-label="Editor login form">
+                <div>
+                    <label for="editorUsername">Name</label>
+                    <input id="editorUsername" type="text" autocomplete="username" required>
+                </div>
+
+                <div>
+                    <label for="editorPassword">Password</label>
+                    <input id="editorPassword" type="password" autocomplete="current-password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Unlock Editor</button>
+            </form>
+
+            <p id="editorLoginMessage" class="editor-login-message"></p>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer>
+    <div class="container">
+        <a href="/" aria-label="Homepage" class="footer-logo-link">
+            <img src="/assets/images/logo.png" alt="Logo" class="footer-logo" height="36">
+        </a>
+        © 2026 Practical Systems |
+        <a href="/privacy/">Privacy</a> |
+        <a href="/terms/">Terms</a>
+    </div>
+</footer>
+</body>
+</html>
