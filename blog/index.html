@@ -4,176 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog & Video Archive | Practical Systems</title>
-<meta name="description" content="Structured fitness and productivity videos with implementation frameworks. Updated 4x per week.">
+<meta name="description" content="Structured fitness and productivity blog content with practical implementation frameworks. Updated regularly for busy young professionals.">
 
 <link rel="icon" href="../assets/images/logo.svg">
+<link rel="stylesheet" href="/assets/style/style.css">
+<script src="/assets/scripts/script.js" defer></script>
 
-<style>
-:root {
-    --bg: #ffffff;
-    --text: #111111;
-    --muted: #6b7280;
-    --border: #e5e7eb;
-    --radius: 10px;
-    --max-width: 1100px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-}
-
-a { text-decoration: none; color: inherit; }
-
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-header {
-    border-bottom: 1px solid var(--border);
-    background: white;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-}
-
-.nav-links {
-    display: none;
-    gap: 24px;
-}
-
-.nav-links a {
-    font-weight: 500;
-    color: var(--muted);
-}
-
-.nav-links a:hover { color: var(--text); }
-
-.hero {
-    padding: 80px 0 50px;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-}
-
-.hero p {
-    color: var(--muted);
-    max-width: 650px;
-    margin: 0 auto;
-}
-
-.filter-bar {
-    padding: 40px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    padding: 8px 16px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    cursor: pointer;
-    background: white;
-    font-weight: 500;
-}
-
-.filter-btn.active {
-    border-color: var(--text);
-    background: var(--text);
-    color: white;
-}
-
-.posts {
-    padding: 60px 0;
-}
-
-.posts-grid {
-    display: grid;
-    gap: 24px;
-}
-
-.post-card {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: 0.25s ease;
-    cursor: pointer;
-}
-
-.post-card:hover {
-    border-color: var(--text);
-}
-
-.post-thumb {
-    height: 180px;
-    background: #f3f4f6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    color: var(--muted);
-}
-
-.post-content {
-    padding: 20px;
-}
-
-.post-content h3 {
-    margin-bottom: 10px;
-}
-
-.post-content p {
-    color: var(--muted);
-    font-size: 0.95rem;
-}
-
-.cta-box {
-    margin-top: 20px;
-    font-size: 0.9rem;
-}
-
-.cta-box a {
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 40px 0;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--muted);
-}
-
-@media(min-width: 768px) {
-    .nav-links { display: flex; }
-    .hero h1 { font-size: 3rem; }
-    .posts-grid { grid-template-columns: repeat(3, 1fr); }
-}
-</style>
 </head>
 
-<body>
+<body class="page-blog">
 
 <header>
     <div class="container nav">
@@ -194,7 +33,7 @@ footer {
 <section class="hero">
     <div class="container">
         <h1>Video & Framework Archive</h1>
-        <p>Structured implementation guides for fitness and productivity. Updated four times per week.</p>
+        <p>Keyword-rich fitness and productivity implementation guides for busy professionals. Built for consistency, clarity, and visible progress.</p>
     </div>
 </section>
 
@@ -207,35 +46,57 @@ footer {
 <section class="posts">
     <div class="container posts-grid" id="postsGrid">
 
-        <div class="post-card" data-category="fitness">
-            <div class="post-thumb">Video</div>
+        <div class="post-card" data-category="productivity">
+            <div class="post-thumb">Guide</div>
             <div class="post-content">
-                <h3>Beginner Strength Routine</h3>
-                <p>Simple weekly structure for visible strength progress.</p>
+                <h3>The Anti-Overwhelm Week</h3>
+                <p>A 7-day reset system to reduce overwhelm and rebuild consistency for fitness and productivity.</p>
                 <div class="cta-box">
-                    <a href="/starter-plan/">Download Starter Plan</a>
+                    <a href="/blog/anti-overwhelm-week/">Read Article</a>
                 </div>
             </div>
         </div>
 
         <div class="post-card" data-category="productivity">
-            <div class="post-thumb">Video</div>
+            <div class="post-thumb">Framework</div>
             <div class="post-content">
-                <h3>Daily Execution Framework</h3>
-                <p>How to structure your workday for measurable output.</p>
+                <h3>Structure Over Motivation: 3-System Stack</h3>
+                <p>How to combine training, execution, and recovery into one sustainable weekly operating model.</p>
                 <div class="cta-box">
-                    <a href="/premium/">Join Premium Waitlist</a>
+                    <a href="/blog/structure-over-motivation-system-stack/">Read Article</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="post-card" data-category="productivity">
+            <div class="post-thumb">Tactical</div>
+            <div class="post-content">
+                <h3>Habit Tracking That Actually Works</h3>
+                <p>A practical tracking system to make routines automatic and remove stop-start execution cycles.</p>
+                <div class="cta-box">
+                    <a href="/blog/habit-tracking-that-actually-works/">Read Article</a>
                 </div>
             </div>
         </div>
 
         <div class="post-card" data-category="fitness">
-            <div class="post-thumb">Video</div>
+            <div class="post-thumb">Blueprint</div>
             <div class="post-content">
-                <h3>Habit Tracking System</h3>
-                <p>Eliminate inconsistency with visible metrics.</p>
+                <h3>The Beginner Strength Blueprint</h3>
+                <p>A clear strength training framework for professionals with limited time and high consistency goals.</p>
                 <div class="cta-box">
-                    <a href="/starter-plan/">Download Starter Plan</a>
+                    <a href="/blog/beginner-strength-blueprint/">Read Article</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="post-card" data-category="productivity">
+            <div class="post-thumb">Audit</div>
+            <div class="post-content">
+                <h3>Productivity System Sustainability Audit</h3>
+                <p>Five weekly signals to evaluate whether your system can handle stress without losing quality.</p>
+                <div class="cta-box">
+                    <a href="/blog/sustainable-productivity-system-audit/">Read Article</a>
                 </div>
             </div>
         </div>
@@ -253,27 +114,6 @@ footer {
     </div>
 </footer>
 
-<script>
-const buttons = document.querySelectorAll(".filter-btn");
-const posts = document.querySelectorAll(".post-card");
-
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
-        document.querySelector(".filter-btn.active").classList.remove("active");
-        button.classList.add("active");
-
-        const filter = button.dataset.filter;
-
-        posts.forEach(post => {
-            if(filter === "all" || post.dataset.category === filter) {
-                post.style.display = "block";
-            } else {
-                post.style.display = "none";
-            }
-        });
-    });
-});
-</script>
 
 <script type="application/ld+json">
 {

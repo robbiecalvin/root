@@ -7,205 +7,12 @@
 <meta name="description" content="Simple fitness and productivity systems for young professionals. Clear plans, visible progress, real accountability. Subscribe for weekly frameworks.">
 
 <link rel="icon" href="../assets/images/logo.svg">
+<link rel="stylesheet" href="/assets/style/style.css">
+<script src="/assets/scripts/script.js" defer></script>
 
-<style>
-:root {
-    --bg: #ffffff;
-    --text: #111111;
-    --muted: #6b7280;
-    --accent: #111111;
-    --border: #e5e7eb;
-    --max-width: 1100px;
-    --radius: 10px;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-header {
-    border-bottom: 1px solid var(--border);
-    background: white;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-}
-
-.nav-links {
-    display: none;
-    gap: 24px;
-}
-
-.nav-links a {
-    font-weight: 500;
-    color: var(--muted);
-}
-
-.nav-links a:hover {
-    color: var(--text);
-}
-
-.mobile-toggle {
-    cursor: pointer;
-}
-
-.hero {
-    padding: 80px 0 60px;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 600px;
-    margin: 0 auto 30px;
-}
-
-.cta-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-}
-
-.btn {
-    padding: 14px 28px;
-    border-radius: var(--radius);
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s ease;
-    border: 1px solid var(--text);
-}
-
-.btn-primary {
-    background: var(--text);
-    color: white;
-}
-
-.btn-primary:hover {
-    opacity: 0.9;
-}
-
-.btn-secondary {
-    background: white;
-    color: var(--text);
-}
-
-.metrics {
-    padding: 60px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-    text-align: center;
-}
-
-.metric h3 {
-    font-size: 2rem;
-}
-
-.section {
-    padding: 80px 0;
-}
-
-.section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.section p {
-    max-width: 600px;
-    margin: 0 auto 40px;
-    text-align: center;
-    color: var(--muted);
-}
-
-.email-box {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.email-box input {
-    padding: 14px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-}
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 40px 0;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--muted);
-}
-
-@media(min-width: 768px) {
-
-    .nav-links {
-        display: flex;
-    }
-
-    .mobile-toggle {
-        display: none;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    .metrics-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .cta-group {
-        flex-direction: row;
-    }
-}
-</style>
 </head>
 
-<body>
+<body class="page-home">
 
 <header>
     <div class="container nav">
@@ -262,7 +69,7 @@ footer {
             <input type="email" id="emailInput" placeholder="Enter your email" required aria-required="true">
             <button type="submit" class="btn btn-primary">Subscribe Now</button>
         </form>
-        <p id="formMessage" style="text-align:center;margin-top:10px;"></p>
+        <p id="formMessage" class="form-message"></p>
     </div>
 </section>
 
@@ -276,24 +83,6 @@ footer {
     </div>
 </footer>
 
-<script>
-const form = document.getElementById("emailForm");
-const message = document.getElementById("formMessage");
-
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    const email = document.getElementById("emailInput").value;
-
-    if(email.includes("@")) {
-        message.textContent = "You're in. Check your inbox.";
-        message.style.color = "green";
-        form.reset();
-    } else {
-        message.textContent = "Please enter a valid email.";
-        message.style.color = "red";
-    }
-});
-</script>
 
 <script type="application/ld+json">
 {

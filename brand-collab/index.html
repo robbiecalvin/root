@@ -7,149 +7,12 @@
 <meta name="description" content="Submit a structured brand collaboration inquiry. Designed for credible, practical partnerships aligned with structured fitness and productivity systems.">
 
 <link rel="icon" href="../assets/images/logo.svg">
+<link rel="stylesheet" href="/assets/style/style.css">
+<script src="/assets/scripts/script.js" defer></script>
 
-<style>
-:root {
-    --bg: #ffffff;
-    --text: #111111;
-    --muted: #6b7280;
-    --border: #e5e7eb;
-    --radius: 10px;
-    --max-width: 900px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-}
-
-a { text-decoration: none; color: inherit; }
-
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-header {
-    border-bottom: 1px solid var(--border);
-    background: white;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-}
-
-.nav-links {
-    display: none;
-    gap: 24px;
-}
-
-.nav-links a {
-    font-weight: 500;
-    color: var(--muted);
-}
-
-.nav-links a:hover { color: var(--text); }
-
-.hero {
-    padding: 80px 0 40px;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 2.4rem;
-    margin-bottom: 16px;
-}
-
-.hero p {
-    color: var(--muted);
-    max-width: 650px;
-    margin: 0 auto;
-}
-
-.form-section {
-    padding: 60px 0 100px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-input, select, textarea {
-    padding: 14px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    font-size: 1rem;
-    width: 100%;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-label {
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-.hidden {
-    display: none;
-}
-
-.btn {
-    padding: 14px 28px;
-    border-radius: var(--radius);
-    border: 1px solid var(--text);
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: var(--text);
-    color: white;
-}
-
-.btn-primary:hover { opacity: 0.9; }
-
-.success-box {
-    display: none;
-    border: 1px solid var(--border);
-    padding: 30px;
-    border-radius: var(--radius);
-    margin-top: 20px;
-    text-align: center;
-}
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 40px 0;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--muted);
-}
-
-@media(min-width: 768px) {
-    .nav-links { display: flex; }
-    .hero h1 { font-size: 3rem; }
-}
-</style>
 </head>
 
-<body>
+<body class="page-brand-collab">
 
 <header>
     <div class="container nav">
@@ -236,34 +99,6 @@ footer {
     </div>
 </footer>
 
-<script>
-const budgetSelect = document.getElementById("budgetSelect");
-const alignmentQuestion = document.getElementById("alignmentQuestion");
-const form = document.getElementById("collabForm");
-const successBox = document.getElementById("successBox");
-
-budgetSelect.addEventListener("change", function() {
-    if(this.value === "mid" || this.value === "high") {
-        alignmentQuestion.classList.remove("hidden");
-    } else {
-        alignmentQuestion.classList.add("hidden");
-    }
-});
-
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-
-    const budget = budgetSelect.value;
-
-    if(budget === "low") {
-        alert("Minimum campaign budget typically starts above $1,000.");
-        return;
-    }
-
-    form.style.display = "none";
-    successBox.style.display = "block";
-});
-</script>
 
 <script type="application/ld+json">
 {

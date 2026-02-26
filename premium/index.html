@@ -7,166 +7,12 @@
 <meta name="description" content="Join the premium waitlist for advanced structured fitness and productivity systems. Courses and community launching soon.">
 
 <link rel="icon" href="../assets/images/logo.svg">
+<link rel="stylesheet" href="/assets/style/style.css">
+<script src="/assets/scripts/script.js" defer></script>
 
-<style>
-:root {
-    --bg: #ffffff;
-    --text: #111111;
-    --muted: #6b7280;
-    --border: #e5e7eb;
-    --radius: 10px;
-    --max-width: 1000px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-}
-
-a { text-decoration: none; color: inherit; }
-
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-header {
-    border-bottom: 1px solid var(--border);
-    background: white;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-}
-
-.nav-links {
-    display: none;
-    gap: 24px;
-}
-
-.nav-links a {
-    font-weight: 500;
-    color: var(--muted);
-}
-
-.nav-links a:hover { color: var(--text); }
-
-.hero {
-    padding: 100px 0 60px;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    max-width: 650px;
-    margin: 0 auto 30px;
-    color: var(--muted);
-}
-
-.feature-preview {
-    padding: 60px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
-.preview-grid {
-    display: grid;
-    gap: 24px;
-}
-
-.card {
-    border: 1px solid var(--border);
-    padding: 30px;
-    border-radius: var(--radius);
-    transition: 0.25s ease;
-}
-
-.card:hover {
-    border-color: var(--text);
-}
-
-.card h3 {
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: var(--muted);
-}
-
-.waitlist-section {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.waitlist-box {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.waitlist-box input {
-    padding: 14px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-}
-
-.btn {
-    padding: 14px 28px;
-    border-radius: var(--radius);
-    border: 1px solid var(--text);
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: var(--text);
-    color: white;
-}
-
-.btn-primary:hover { opacity: 0.9; }
-
-.success {
-    display: none;
-    margin-top: 20px;
-    border: 1px solid var(--border);
-    padding: 20px;
-    border-radius: var(--radius);
-}
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 40px 0;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--muted);
-}
-
-@media(min-width: 768px) {
-    .nav-links { display: flex; }
-    .hero h1 { font-size: 3rem; }
-    .preview-grid { grid-template-columns: repeat(3, 1fr); }
-}
-</style>
 </head>
 
-<body>
+<body class="page-premium">
 
 <header>
     <div class="container nav">
@@ -237,23 +83,6 @@ footer {
     </div>
 </footer>
 
-<script>
-const waitlistForm = document.getElementById("waitlistForm");
-const waitlistSuccess = document.getElementById("waitlistSuccess");
-
-waitlistForm.addEventListener("submit", function(e){
-    e.preventDefault();
-
-    const email = document.getElementById("waitlistEmail").value.trim();
-
-    if(email.includes("@")) {
-        waitlistForm.style.display = "none";
-        waitlistSuccess.style.display = "block";
-    } else {
-        alert("Enter a valid email.");
-    }
-});
-</script>
 
 <script type="application/ld+json">
 {
