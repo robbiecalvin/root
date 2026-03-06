@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply for a Loan in Canada | Secure Step-by-Step Loan Application</title>
+<meta name="description" content="Complete a secure Canadian loan application online. Submit personal, address, employment, income, debt, banking, and consent details for approval review.">
+<meta name="keywords" content="canada loan application, apply for personal loan canada, bad credit loan application canada, online loan application canada">
+<link rel="canonical" href="https://trustedcashloans.ca/apply/">
+<link rel="icon" href="/assets/images/trusted-cash-loans-logo.png">
+<link rel="stylesheet" href="/assets/style/style.css">
+<script src="/assets/scripts/script.js" defer></script>
+</head>
+<body class="page-application">
+<header>
+    <div class="container nav">
+        <a href="/" class="brand-mark"><img src="/assets/images/trusted-cash-loans-logo.png" alt="Trusted Cash Loans bird logo" class="brand-mark-logo" height="34"><span>Trusted Cash Loans</span></a>
+        <div class="nav-links">
+            <a href="/provinces/">Provinces</a>
+            <a href="/">Calculator</a>
+            <a href="/blog/">Guides</a>
+            <a href="/contact/">Contact</a>
+        </div>
+    </div>
+</header>
+
+<main>
+<section class="hero">
+    <div class="container loan-hero-grid">
+        <div class="loan-hero-copy">
+            <h1>Apply with Confidence</h1>
+            <p>This guided application walks you step-by-step so you know exactly what to enter and why it matters.</p>
+        </div>
+        <div class="hero-visual">
+            <picture>
+                <source srcset="/assets/images/computerhero.png" media="(min-width: 900px)">
+                <img src="/assets/images/mobilehero.png" alt="Phone loan application image for Trusted Cash Loans">
+            </picture>
+            <p class="hero-visual-caption"><strong>Tip:</strong> complete and accurate information usually gets faster decisions.</p>
+        </div>
+    </div>
+</section>
+
+<section class="form-section">
+    <div class="container">
+        <div class="application-header">
+            <p class="trust-note">Encrypted submission. Your data is used only to review your loan request.</p>
+            <div class="progress-wrap">
+                <div class="progress-bar" id="applicationProgressBar"></div>
+            </div>
+            <p id="applicationProgressText" class="notice">Step 1 of 7</p>
+        </div>
+
+        <form id="loanApplicationForm" aria-label="Canadian loan application">
+            <section class="app-step" data-step="1">
+                <h2>Step 1: Tell Us About the Loan You Need</h2>
+                <div>
+                    <label for="requestedAmount">Requested Amount (CAD)</label>
+                    <input type="number" id="requestedAmount" min="500" max="500000" step="100" required>
+                </div>
+                <div>
+                    <label for="loanPurpose">Loan Purpose</label>
+                    <select id="loanPurpose" required>
+                        <option value="">Select purpose</option>
+                        <option value="personal">Personal Loan</option>
+                        <option value="debt_consolidation">Debt Consolidation</option>
+                        <option value="auto">Auto Loan</option>
+                        <option value="emergency">Emergency Loan</option>
+                        <option value="business">Business Loan</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="province">Province/Territory</label>
+                    <select id="province" required>
+                        <option value="">Select province or territory</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="AB">Alberta</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="ON">Ontario</option>
+                        <option value="QC">Quebec</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="NL">Newfoundland and Labrador</option>
+                        <option value="YT">Yukon</option>
+                        <option value="NT">Northwest Territories</option>
+                        <option value="NU">Nunavut</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="preferredTermMonths">Preferred Term (Months)</label>
+                    <input type="number" id="preferredTermMonths" min="6" max="120" step="1" required>
+                </div>
+            </section>
+
+            <section class="app-step hidden" data-step="2">
+                <h2>Step 2: Your Identity and Contact Info</h2>
+                <div><label for="firstName">First Name</label><input type="text" id="firstName" required></div>
+                <div><label for="lastName">Last Name</label><input type="text" id="lastName" required></div>
+                <div><label for="dateOfBirth">Date of Birth</label><input type="date" id="dateOfBirth" required></div>
+                <div><label for="email">Email</label><input type="email" id="email" required></div>
+                <div><label for="phone">Phone Number</label><input type="tel" id="phone" required></div>
+                <div><label for="sinLast4">Last 4 digits of SIN</label><input type="text" id="sinLast4" pattern="[0-9]{4}" maxlength="4" required></div>
+            </section>
+
+            <section class="app-step hidden" data-step="3">
+                <h2>Step 3: Where You Live</h2>
+                <div><label for="streetAddress">Street Address</label><input type="text" id="streetAddress" required></div>
+                <div><label for="city">City</label><input type="text" id="city" required></div>
+                <div><label for="postalCode">Postal Code</label><input type="text" id="postalCode" placeholder="A1A 1A1" required></div>
+                <div>
+                    <label for="housingStatus">Housing Status</label>
+                    <select id="housingStatus" required>
+                        <option value="">Select status</option>
+                        <option value="own">Own</option>
+                        <option value="rent">Rent</option>
+                        <option value="family">Living with Family</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div><label for="monthlyHousingCost">Monthly Housing Cost (CAD)</label><input type="number" id="monthlyHousingCost" min="0" step="1" required></div>
+                <div><label for="timeAtAddressMonths">Time at Address (Months)</label><input type="number" id="timeAtAddressMonths" min="0" step="1" required></div>
+            </section>
+
+            <section class="app-step hidden" data-step="4">
+                <h2>Step 4: Your Work and Income</h2>
+                <div>
+                    <label for="employmentStatus">Employment Status</label>
+                    <select id="employmentStatus" required>
+                        <option value="">Select status</option>
+                        <option value="full_time">Full-Time</option>
+                        <option value="part_time">Part-Time</option>
+                        <option value="self_employed">Self-Employed</option>
+                        <option value="contract">Contract</option>
+                        <option value="retired">Retired</option>
+                        <option value="benefits">Government Benefits</option>
+                    </select>
+                </div>
+                <div><label for="employerName">Employer or Business Name</label><input type="text" id="employerName" required></div>
+                <div><label for="jobTitle">Job Title or Occupation</label><input type="text" id="jobTitle" required></div>
+                <div><label for="timeEmployedMonths">Time Employed (Months)</label><input type="number" id="timeEmployedMonths" min="0" step="1" required></div>
+                <div><label for="monthlyIncome">Net Monthly Income (CAD)</label><input type="number" id="monthlyIncome" min="0" step="1" required></div>
+                <div><label for="incomeFrequency">Income Frequency</label><select id="incomeFrequency" required><option value="">Select</option><option value="weekly">Weekly</option><option value="biweekly">Bi-Weekly</option><option value="semi_monthly">Semi-Monthly</option><option value="monthly">Monthly</option></select></div>
+            </section>
+
+            <section class="app-step hidden" data-step="5">
+                <h2>Step 5: Your Monthly Financial Commitments</h2>
+                <div><label for="creditScoreRange">Estimated Credit Score Range</label><select id="creditScoreRange" required><option value="">Select range</option><option value="300-559">300-559</option><option value="560-659">560-659</option><option value="660-724">660-724</option><option value="725+">725+</option><option value="unknown">I don't know</option></select></div>
+                <div><label for="existingDebtPayments">Current Monthly Debt Payments (CAD)</label><input type="number" id="existingDebtPayments" min="0" step="1" required></div>
+                <div><label for="bankruptcies">Any bankruptcy or consumer proposal in last 7 years?</label><select id="bankruptcies" required><option value="">Select</option><option value="no">No</option><option value="yes">Yes</option></select></div>
+                <div><label for="coApplicant">Applying with a co-applicant?</label><select id="coApplicant" required><option value="">Select</option><option value="no">No</option><option value="yes">Yes</option></select></div>
+            </section>
+
+            <section class="app-step hidden" data-step="6">
+                <h2>Step 6: Banking Details</h2>
+                <div><label for="bankName">Primary Bank Name</label><input type="text" id="bankName" required></div>
+                <div><label for="bankAccountType">Bank Account Type</label><select id="bankAccountType" required><option value="">Select type</option><option value="chequing">Chequing</option><option value="savings">Savings</option></select></div>
+                <div><label for="directDeposit">Do you receive direct deposit?</label><select id="directDeposit" required><option value="">Select</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+                <div><label for="nextPayDate">Next Pay Date</label><input type="date" id="nextPayDate" required></div>
+                <div><label for="fundingMethod">Preferred Funding Method</label><select id="fundingMethod" required><option value="">Select method</option><option value="eft">EFT</option><option value="interac">Interac e-Transfer</option></select></div>
+            </section>
+
+            <section class="app-step hidden" data-step="7">
+                <h2>Step 7: Consent and Final Submit</h2>
+                <div><label for="idType">Government ID Type</label><select id="idType" required><option value="">Select ID type</option><option value="drivers_license">Driver's Licence</option><option value="passport">Passport</option><option value="provincial_id">Provincial ID</option></select></div>
+                <div><label for="idNumber">ID Number</label><input type="text" id="idNumber" required></div>
+                <div><label for="consentCreditCheck">Credit Check Consent</label><select id="consentCreditCheck" required><option value="">Select</option><option value="yes">I consent</option><option value="no">I do not consent</option></select></div>
+                <div><label for="consentElectronicDocs">Electronic Documents Consent</label><select id="consentElectronicDocs" required><option value="">Select</option><option value="yes">I consent</option><option value="no">I do not consent</option></select></div>
+                <div><label for="consentPrivacy">Privacy Policy Acceptance</label><select id="consentPrivacy" required><option value="">Select</option><option value="yes">I agree</option><option value="no">I do not agree</option></select></div>
+                <p class="notice">By submitting, you confirm the information is complete and accurate.</p>
+            </section>
+
+            <div class="application-actions">
+                <button type="button" id="applicationBack" class="btn btn-secondary hidden">Back</button>
+                <button type="button" id="applicationNext" class="btn btn-primary">Next Step</button>
+                <button type="submit" id="applicationSubmit" class="btn btn-primary hidden">Submit Application</button>
+            </div>
+        </form>
+
+        <div class="success-box" id="applicationSuccess">
+            <h3>Application Submitted</h3>
+            <p>We received your application. A specialist will contact you with next steps.</p>
+        </div>
+        <p id="applicationMessage" class="form-message"></p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>What Happens Next</h2>
+        <div class="framework-grid">
+            <article class="card"><h3>1. We Review Your Info</h3><p>We check your application for completeness and match it to your province.</p></article>
+            <article class="card"><h3>2. We Check Affordability</h3><p>Your income and monthly expenses are reviewed to see what may fit.</p></article>
+            <article class="card"><h3>3. We Verify Key Details</h3><p>Identity and banking details may be verified before an offer is presented.</p></article>
+            <article class="card"><h3>4. You Get an Update</h3><p>You receive available next steps and any documents needed to proceed.</p></article>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Before You Submit: Quick Checklist</h2>
+        <div class="framework-grid">
+            <article class="card"><h3>Identity Ready</h3><p>Valid government ID and matching legal name across your records.</p></article>
+            <article class="card"><h3>Income Evidence</h3><p>Recent pay details or stable business income figures you can verify.</p></article>
+            <article class="card"><h3>Accurate Debt Totals</h3><p>Current monthly debt payments entered without estimates or omissions.</p></article>
+            <article class="card"><h3>Banking Consistency</h3><p>Active account with direct deposit history where available.</p></article>
+            <article class="card"><h3>Realistic Loan Size</h3><p>Request only what your monthly cashflow can reasonably support.</p></article>
+            <article class="card"><h3>Province Selection</h3><p>Select the province where you currently reside and receive income.</p></article>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer class="boss-footer" aria-label="Trusted Cash Loans platform footer">
+    <section class="boss-footer-layer boss-footer-cta">
+        <div class="container boss-footer-cta-grid">
+            <div>
+                <p class="boss-footer-eyebrow">Next Step</p>
+                <h2>Run the Numbers. Then Move with Confidence.</h2>
+                <p>Use the payment engine to stress-test your loan strategy, or jump into your dashboard to compare scenarios and funding timelines.</p>
+            </div>
+            <div class="boss-footer-cta-actions">
+                <a class="btn btn-primary fintech-btn" href="#calculator">Calculate Payments</a>
+                <a class="btn btn-secondary fintech-btn" href="/financial-dashboard/">Explore Dashboard</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="boss-footer-layer boss-footer-tools">
+        <div class="container">
+            <h2>Financial Tools</h2>
+            <div class="boss-tools-grid">
+                <a class="boss-tool-link" href="/loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">∑</span><span>Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/debt-consolidation-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">⇄</span><span>Debt Consolidation Calculator</span></a>
+                <a class="boss-tool-link" href="/bad-credit-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">%</span><span>Bad Credit Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/emergency-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">!</span><span>Emergency Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/auto-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">▣</span><span>Auto Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/budget-planner/"><span class="boss-tool-icon" aria-hidden="true">⌁</span><span>Budget Planner</span></a>
+                <a class="boss-tool-link" href="/debt-payoff-calculator/"><span class="boss-tool-icon" aria-hidden="true">↘</span><span>Debt Payoff Calculator</span></a>
+                <a class="boss-tool-link" href="/savings-growth-calculator/"><span class="boss-tool-icon" aria-hidden="true">↗</span><span>Savings Growth Calculator</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="boss-footer-layer boss-footer-mega-links">
+        <div class="container boss-mega-grid">
+            <nav aria-label="Loan calculators">
+                <h3>Loan Calculators</h3>
+                <ul>
+                    <li><a href="/loan-calculator/">Personal Loan Calculator</a></li>
+                    <li><a href="/auto-loan-calculator/">Auto Loan Calculator</a></li>
+                    <li><a href="/bad-credit-loan-calculator/">Bad Credit Loan Calculator</a></li>
+                    <li><a href="/emergency-loan-calculator/">Emergency Loan Calculator</a></li>
+                    <li><a href="/mortgage-payment-calculator/">Mortgage Payment Calculator</a></li>
+                    <li><a href="/debt-consolidation-loan-calculator/">Debt Consolidation Calculator</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Loan guides">
+                <h3>Loan Guides</h3>
+                <ul>
+                    <li><a href="/learn/">Learning Center</a></li>
+                    <li><a href="/loan-approval-checklist/">Loan Approval Checklist</a></li>
+                    <li><a href="/loan-application-timeline/">Application Timeline Guide</a></li>
+                    <li><a href="/loan-glossary/">Loan Glossary</a></li>
+                    <li><a href="/borrowing-mistakes/">Borrowing Mistakes to Avoid</a></li>
+                    <li><a href="/real-user-stories/">Real Borrower Stories</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Province pages">
+                <h3>Province Pages</h3>
+                <ul>
+                    <li><a href="/provinces/">All Provinces</a></li>
+                    <li><a href="/loans-in/">Loans by Province</a></li>
+                    <li><a href="/on/">Ontario</a></li>
+                    <li><a href="/bc/">British Columbia</a></li>
+                    <li><a href="/ab/">Alberta</a></li>
+                    <li><a href="/qc/">Quebec</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Financial tools">
+                <h3>Financial Tools</h3>
+                <ul>
+                    <li><a href="/loan-tools/">Tools Hub</a></li>
+                    <li><a href="/interest-comparison-calculator/">Interest Comparison Calculator</a></li>
+                    <li><a href="/refinance-calculator/">Refinance Calculator</a></li>
+                    <li><a href="/borrowing-power-calculator/">Borrowing Power Calculator</a></li>
+                    <li><a href="/investment-return-calculator/">Investment Return Calculator</a></li>
+                    <li><a href="/loan-scenario-simulator/">Loan Scenario Simulator</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Platform links">
+                <h3>Platform Links</h3>
+                <ul>
+                    <li><a href="/financial-dashboard/">Financial Dashboard</a></li>
+                    <li><a href="/loan-data-hub/">Loan Data Hub</a></li>
+                    <li><a href="/example-payments/">Example Payments</a></li>
+                    <li><a href="/apply/">Secure Application</a></li>
+                    <li><a href="/trust/">Trust Center</a></li>
+                    <li><a href="/contact/">Contact Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <section class="boss-footer-layer boss-footer-legal">
+        <div class="container boss-legal-grid">
+            <a href="/" class="brand-mark footer-logo-link"><img src="/assets/images/trusted-cash-loans-logo.png" alt="Trusted Cash Loans bird logo" class="footer-logo"><span>Trusted Cash Loans</span></a>
+            <p>© 2026 Trusted Cash Loans. Estimates are for planning only and do not guarantee approval, rates, or lender terms.</p>
+            <p class="boss-legal-links"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a><a href="/trust/">Trust</a><a href="/about/">About</a><a href="/contact/">Contact</a></p>
+        </div>
+    </section>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Canadian Loan Application",
+  "description": "Secure online loan application for Canadian provinces and territories"
+}
+</script>
+</body>
+</html>

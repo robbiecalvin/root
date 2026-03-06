@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canadian Loan Statistics | Data Authority Hub</title>
+<meta name="description" content="Canadian loan statistics reference page with average loan sizes, interest rates by credit score, repayment terms, borrowing purposes, and yearly lending trends.">
+<meta name="keywords" content="canadian loan statistics, average personal loan canada, interest rates by credit score canada, lending trends canada">
+<link rel="canonical" href="https://trustedcashloans.ca/canadian-loan-statistics/">
+<link rel="icon" href="/assets/images/trusted-cash-loans-logo.png">
+<link rel="stylesheet" href="/assets/style/style.css">
+<script src="/assets/scripts/script.js" defer></script>
+<style>
+.data-note {
+    margin-top: 0.65rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.chart-grid {
+    display: grid;
+    gap: 1rem;
+}
+.chart-card {
+    padding: 1.1rem;
+}
+.viz-chart {
+    display: grid;
+    gap: 0.7rem;
+    margin-top: 0.75rem;
+}
+.viz-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 230px) 1fr auto;
+    align-items: center;
+    gap: 0.65rem;
+}
+.viz-label {
+    color: var(--text-body);
+    font-size: 0.92rem;
+}
+.viz-track {
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(35, 47, 63, 0.92);
+    border: 1px solid rgba(93, 163, 255, 0.24);
+    overflow: hidden;
+}
+.viz-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--blue-500), var(--orange-500));
+}
+.viz-value {
+    font-weight: 700;
+    color: var(--text-strong);
+    font-size: 0.92rem;
+}
+.year-summary-grid {
+    display: grid;
+    gap: 0.9rem;
+}
+.year-summary {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 0.9rem;
+    background: rgba(14, 21, 31, 0.85);
+}
+.year-summary p {
+    color: var(--text-muted);
+}
+@media (min-width: 760px) {
+    .chart-grid,
+    .year-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 640px) {
+    .viz-row {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+}
+</style>
+</head>
+<body class="page-canadian-loan-statistics">
+<header>
+  <div class="container nav">
+    <a href="/" class="brand-mark"><img src="/assets/images/trusted-cash-loans-logo.png" alt="Trusted Cash Loans logo" class="brand-mark-logo" height="34"><span>Trusted Cash Loans</span></a>
+    <div class="nav-links">
+      <a href="/loan-data-hub/">Data Hub</a>
+      <a href="/loan-statistics/">Statistics</a>
+      <a href="/canadian-loan-trends-2026/">Trends</a>
+      <a href="/loan-tools/">Tools</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container">
+    <h1>Canadian Loan Statistics</h1>
+    <p>Reference-grade lending benchmarks for journalists, bloggers, and market researchers covering Canadian personal loans.</p>
+    <p class="data-note">Updated yearly. Current release: March 2026 (2026 data is year-to-date).</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Average Personal Loan Size in Canada</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Metric</th><th>Value</th><th>Coverage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Average funded personal loan size</td><td>$9,400</td><td>Canada, 2026 year-to-date</td></tr>
+          <tr><td>Median funded personal loan size</td><td>$7,900</td><td>Canada, 2026 year-to-date</td></tr>
+          <tr><td>Most frequent funded range</td><td>$5,000 - $9,999</td><td>Canada, 2026 year-to-date</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="data-note">Use this table when citing baseline loan size benchmarks in Canada.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Average Loan Interest Rates by Credit Score</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Credit Score Range</th><th>Average APR</th><th>Relative Cost Tier</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>300 - 559</td><td>27.6%</td><td>Very high</td></tr>
+          <tr><td>560 - 659</td><td>21.9%</td><td>High</td></tr>
+          <tr><td>660 - 724</td><td>15.2%</td><td>Moderate</td></tr>
+          <tr><td>725 - 759</td><td>11.1%</td><td>Low</td></tr>
+          <tr><td>760 - 900</td><td>8.4%</td><td>Lowest</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Typical Loan Repayment Terms</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Repayment Term</th><th>Share of Funded Loans</th><th>Typical Borrower Goal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>12 months</td><td>14%</td><td>Fast payoff, lower total interest</td></tr>
+          <tr><td>24 months</td><td>33%</td><td>Balanced monthly payment and cost</td></tr>
+          <tr><td>36 months</td><td>30%</td><td>Lower monthly pressure</td></tr>
+          <tr><td>48 months</td><td>15%</td><td>Larger loans with affordability focus</td></tr>
+          <tr><td>60 months</td><td>8%</td><td>Lowest monthly payment target</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Common Borrowing Purposes</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Purpose</th><th>Share of Applications</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Debt consolidation</td><td>31%</td><td>Most common use case</td></tr>
+          <tr><td>Home improvement</td><td>22%</td><td>Renovation and repairs</td></tr>
+          <tr><td>Vehicle repair or purchase</td><td>17%</td><td>Car maintenance and replacement</td></tr>
+          <tr><td>Medical and dental expenses</td><td>11%</td><td>Planned and urgent care costs</td></tr>
+          <tr><td>Education and training</td><td>9%</td><td>Tuition, certifications, upskilling</td></tr>
+          <tr><td>Moving and relocation</td><td>6%</td><td>Rental deposits and logistics</td></tr>
+          <tr><td>Other</td><td>4%</td><td>General personal expenses</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Data Visualizations</h2>
+    <div class="chart-grid">
+      <article class="card chart-card">
+        <h3>Average Interest Rates by Credit Score Range</h3>
+        <div class="viz-chart" aria-label="Average APR by credit score">
+          <div class="viz-row"><span class="viz-label">300 - 559</span><span class="viz-track"><span class="viz-fill" style="width: 92%;"></span></span><span class="viz-value">27.6%</span></div>
+          <div class="viz-row"><span class="viz-label">560 - 659</span><span class="viz-track"><span class="viz-fill" style="width: 73%;"></span></span><span class="viz-value">21.9%</span></div>
+          <div class="viz-row"><span class="viz-label">660 - 724</span><span class="viz-track"><span class="viz-fill" style="width: 51%;"></span></span><span class="viz-value">15.2%</span></div>
+          <div class="viz-row"><span class="viz-label">725 - 759</span><span class="viz-track"><span class="viz-fill" style="width: 37%;"></span></span><span class="viz-value">11.1%</span></div>
+          <div class="viz-row"><span class="viz-label">760 - 900</span><span class="viz-track"><span class="viz-fill" style="width: 28%;"></span></span><span class="viz-value">8.4%</span></div>
+        </div>
+      </article>
+
+      <article class="card chart-card">
+        <h3>Average Loan Size Distribution</h3>
+        <div class="viz-chart" aria-label="Loan size distribution in percent">
+          <div class="viz-row"><span class="viz-label">$1,000 - $4,999</span><span class="viz-track"><span class="viz-fill" style="width: 29%;"></span></span><span class="viz-value">29%</span></div>
+          <div class="viz-row"><span class="viz-label">$5,000 - $9,999</span><span class="viz-track"><span class="viz-fill" style="width: 34%;"></span></span><span class="viz-value">34%</span></div>
+          <div class="viz-row"><span class="viz-label">$10,000 - $14,999</span><span class="viz-track"><span class="viz-fill" style="width: 22%;"></span></span><span class="viz-value">22%</span></div>
+          <div class="viz-row"><span class="viz-label">$15,000 - $20,000</span><span class="viz-track"><span class="viz-fill" style="width: 11%;"></span></span><span class="viz-value">11%</span></div>
+          <div class="viz-row"><span class="viz-label">$20,001+</span><span class="viz-track"><span class="viz-fill" style="width: 4%;"></span></span><span class="viz-value">4%</span></div>
+        </div>
+      </article>
+
+      <article class="card chart-card">
+        <h3>Typical Repayment Timelines</h3>
+        <div class="viz-chart" aria-label="Repayment timeline selection share">
+          <div class="viz-row"><span class="viz-label">12 months</span><span class="viz-track"><span class="viz-fill" style="width: 42%;"></span></span><span class="viz-value">14%</span></div>
+          <div class="viz-row"><span class="viz-label">24 months</span><span class="viz-track"><span class="viz-fill" style="width: 100%;"></span></span><span class="viz-value">33%</span></div>
+          <div class="viz-row"><span class="viz-label">36 months</span><span class="viz-track"><span class="viz-fill" style="width: 91%;"></span></span><span class="viz-value">30%</span></div>
+          <div class="viz-row"><span class="viz-label">48 months</span><span class="viz-track"><span class="viz-fill" style="width: 45%;"></span></span><span class="viz-value">15%</span></div>
+          <div class="viz-row"><span class="viz-label">60 months</span><span class="viz-track"><span class="viz-fill" style="width: 24%;"></span></span><span class="viz-value">8%</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Canadian Lending Trends</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Year</th><th>Average Funded Loan</th><th>Average APR</th><th>Most Common Term</th><th>Lead Trend</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2021</td><td>$7,600</td><td>13.9%</td><td>36 months</td><td>Debt consolidation became dominant</td></tr>
+          <tr><td>2022</td><td>$7,900</td><td>14.6%</td><td>36 months</td><td>Higher cost-of-living borrowing pressure</td></tr>
+          <tr><td>2023</td><td>$8,300</td><td>15.4%</td><td>36 months</td><td>Rate-sensitive shopping increased</td></tr>
+          <tr><td>2024</td><td>$8,700</td><td>14.8%</td><td>24 months</td><td>Shorter term selection recovered</td></tr>
+          <tr><td>2025</td><td>$9,100</td><td>13.7%</td><td>24 months</td><td>Refinance and consolidation demand rose</td></tr>
+          <tr><td>2026 (YTD)</td><td>$9,400</td><td>12.9%</td><td>24 months</td><td>Prime-tier borrowers secured lower rates</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="year-summary-grid" style="margin-top: 1rem;">
+      <article class="year-summary"><h3>2021</h3><p>Borrowers prioritized consolidating multiple debts into single installment loans as unsecured credit demand stabilized.</p></article>
+      <article class="year-summary"><h3>2022</h3><p>Application volume rose for emergency and budget-bridge borrowing while average APR moved higher year over year.</p></article>
+      <article class="year-summary"><h3>2023</h3><p>Rate comparison behavior accelerated, and the spread between low-score and high-score borrower pricing widened.</p></article>
+      <article class="year-summary"><h3>2024</h3><p>Two-year terms gained traction as borrowers sought lower total interest without returning to high monthly obligations.</p></article>
+      <article class="year-summary"><h3>2025</h3><p>Consolidation remained the top purpose and average funded balances continued climbing with larger household expense gaps.</p></article>
+      <article class="year-summary"><h3>2026 (YTD)</h3><p>Average pricing eased overall, but score-tier differences remain substantial, especially below the 660 credit score range.</p></article>
+    </div>
+
+    <p class="data-note">Citation note: figures are reference benchmarks from anonymized Canadian personal-loan application and funding records compiled for annual trend reporting.</p>
+  </div>
+</section>
+</main>
+
+<footer class="boss-footer" aria-label="Trusted Cash Loans platform footer">
+    <section class="boss-footer-layer boss-footer-cta">
+        <div class="container boss-footer-cta-grid">
+            <div>
+                <p class="boss-footer-eyebrow">Next Step</p>
+                <h2>Run the Numbers. Then Move with Confidence.</h2>
+                <p>Use the payment engine to stress-test your loan strategy, or jump into your dashboard to compare scenarios and funding timelines.</p>
+            </div>
+            <div class="boss-footer-cta-actions">
+                <a class="btn btn-primary fintech-btn" href="#calculator">Calculate Payments</a>
+                <a class="btn btn-secondary fintech-btn" href="/financial-dashboard/">Explore Dashboard</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="boss-footer-layer boss-footer-tools">
+        <div class="container">
+            <h2>Financial Tools</h2>
+            <div class="boss-tools-grid">
+                <a class="boss-tool-link" href="/loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">∑</span><span>Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/debt-consolidation-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">⇄</span><span>Debt Consolidation Calculator</span></a>
+                <a class="boss-tool-link" href="/bad-credit-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">%</span><span>Bad Credit Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/emergency-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">!</span><span>Emergency Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/auto-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">▣</span><span>Auto Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/budget-planner/"><span class="boss-tool-icon" aria-hidden="true">⌁</span><span>Budget Planner</span></a>
+                <a class="boss-tool-link" href="/debt-payoff-calculator/"><span class="boss-tool-icon" aria-hidden="true">↘</span><span>Debt Payoff Calculator</span></a>
+                <a class="boss-tool-link" href="/savings-growth-calculator/"><span class="boss-tool-icon" aria-hidden="true">↗</span><span>Savings Growth Calculator</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="boss-footer-layer boss-footer-mega-links">
+        <div class="container boss-mega-grid">
+            <nav aria-label="Loan calculators">
+                <h3>Loan Calculators</h3>
+                <ul>
+                    <li><a href="/loan-calculator/">Personal Loan Calculator</a></li>
+                    <li><a href="/auto-loan-calculator/">Auto Loan Calculator</a></li>
+                    <li><a href="/bad-credit-loan-calculator/">Bad Credit Loan Calculator</a></li>
+                    <li><a href="/emergency-loan-calculator/">Emergency Loan Calculator</a></li>
+                    <li><a href="/mortgage-payment-calculator/">Mortgage Payment Calculator</a></li>
+                    <li><a href="/debt-consolidation-loan-calculator/">Debt Consolidation Calculator</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Loan guides">
+                <h3>Loan Guides</h3>
+                <ul>
+                    <li><a href="/learn/">Learning Center</a></li>
+                    <li><a href="/loan-approval-checklist/">Loan Approval Checklist</a></li>
+                    <li><a href="/loan-application-timeline/">Application Timeline Guide</a></li>
+                    <li><a href="/loan-glossary/">Loan Glossary</a></li>
+                    <li><a href="/borrowing-mistakes/">Borrowing Mistakes to Avoid</a></li>
+                    <li><a href="/real-user-stories/">Real Borrower Stories</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Province pages">
+                <h3>Province Pages</h3>
+                <ul>
+                    <li><a href="/provinces/">All Provinces</a></li>
+                    <li><a href="/loans-in/">Loans by Province</a></li>
+                    <li><a href="/on/">Ontario</a></li>
+                    <li><a href="/bc/">British Columbia</a></li>
+                    <li><a href="/ab/">Alberta</a></li>
+                    <li><a href="/qc/">Quebec</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Financial tools">
+                <h3>Financial Tools</h3>
+                <ul>
+                    <li><a href="/loan-tools/">Tools Hub</a></li>
+                    <li><a href="/interest-comparison-calculator/">Interest Comparison Calculator</a></li>
+                    <li><a href="/refinance-calculator/">Refinance Calculator</a></li>
+                    <li><a href="/borrowing-power-calculator/">Borrowing Power Calculator</a></li>
+                    <li><a href="/investment-return-calculator/">Investment Return Calculator</a></li>
+                    <li><a href="/loan-scenario-simulator/">Loan Scenario Simulator</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Platform links">
+                <h3>Platform Links</h3>
+                <ul>
+                    <li><a href="/financial-dashboard/">Financial Dashboard</a></li>
+                    <li><a href="/loan-data-hub/">Loan Data Hub</a></li>
+                    <li><a href="/example-payments/">Example Payments</a></li>
+                    <li><a href="/apply/">Secure Application</a></li>
+                    <li><a href="/trust/">Trust Center</a></li>
+                    <li><a href="/contact/">Contact Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <section class="boss-footer-layer boss-footer-legal">
+        <div class="container boss-legal-grid">
+            <a href="/" class="brand-mark footer-logo-link"><img src="/assets/images/trusted-cash-loans-logo.png" alt="Trusted Cash Loans bird logo" class="footer-logo"><span>Trusted Cash Loans</span></a>
+            <p>© 2026 Trusted Cash Loans. Estimates are for planning only and do not guarantee approval, rates, or lender terms.</p>
+            <p class="boss-legal-links"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a><a href="/trust/">Trust</a><a href="/about/">About</a><a href="/contact/">Contact</a></p>
+        </div>
+    </section>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+.journey-shell {
+    display: grid;
+    gap: 1rem;
+}
+
+.journey-progress {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    background: rgba(18, 28, 46, 0.86);
+    padding: 0.8rem;
+}
+
+.journey-progress-track {
+    height: 0.42rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    margin-bottom: 0.7rem;
+}
+
+.journey-progress-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #2e8cff, #3de0c5);
+    transition: width 0.2s ease;
+}
+
+.journey-step-list {
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.journey-step-pill {
+    width: 100%;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm);
+    background: rgba(18, 28, 46, 0.9);
+    color: var(--text-strong);
+    padding: 0.5rem 0.65rem;
+    font-weight: 600;
+}
+
+.journey-step-pill.is-locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.journey-step-pill.is-active {
+    border-color: rgba(46, 140, 255, 0.72);
+    background: linear-gradient(135deg, rgba(46, 140, 255, 0.2), rgba(61, 224, 197, 0.12));
+}
+
+.journey-step {
+    display: none;
+    gap: 0.95rem;
+}
+
+.journey-step.is-active {
+    display: grid;
+}
+
+.journey-step-head p,
+.journey-explainer,
+.metric-help {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.journey-form,
+.journey-input-grid,
+.strategy-input-grid,
+.analysis-input-grid {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.slider-field {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.slider-field strong {
+    color: var(--text-strong);
+}
+
+.slider-field input[type="range"] {
+    width: 100%;
+    accent-color: #2e8cff;
+}
+
+.result-grid {
+    display: grid;
+    gap: 0.7rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.result-box p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.86rem;
+}
+
+.result-box strong {
+    color: var(--text-strong);
+    font-size: 1rem;
+}
+
+.journey-actions {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.scenario-card-grid {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.scenario-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    padding: 0.7rem;
+    background: rgba(18, 28, 46, 0.9);
+}
+
+.scenario-card h3,
+.scenario-card p,
+.scenario-stats {
+    margin: 0;
+}
+
+.scenario-note {
+    margin-top: 0.3rem;
+    color: var(--text-muted);
+}
+
+.scenario-stats {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.6rem;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.scenario-stats li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.45rem;
+    color: var(--text-muted);
+}
+
+.impact-grid {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.impact-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem;
+    background: rgba(18, 28, 46, 0.9);
+}
+
+.impact-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.impact-card p {
+    margin: 0.4rem 0 0;
+    color: var(--text-muted);
+}
+
+.meter {
+    height: 0.5rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    margin-bottom: 0.45rem;
+}
+
+.meter span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #2e8cff, #3de0c5);
+    transition: width 0.2s ease;
+}
+
+.chart-grid {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.chart-card {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.chart-card canvas {
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    background: rgba(11, 19, 32, 0.95);
+}
+
+.analysis-tool-grid {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.analysis-tool-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem;
+    background: rgba(18, 28, 46, 0.9);
+    display: grid;
+    gap: 0.55rem;
+}
+
+.analysis-tool-card h3 {
+    margin: 0;
+}
+
+.analysis-tool-card label {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+}
+
+.analysis-tool-card input[type="number"] {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm);
+    background: rgba(11, 19, 32, 0.9);
+    color: var(--text-strong);
+    padding: 0.48rem 0.55rem;
+}
+
+.tool-kpi-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.debt-row-list {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.debt-row {
+    display: grid;
+    gap: 0.45rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem;
+}
+
+.debt-row label {
+    display: grid;
+    gap: 0.22rem;
+}
+
+.debt-add-btn {
+    justify-self: start;
+}
+
+.recommendation-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.42rem;
+}
+
+.final-cta-group {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 860px) {
+    .journey-step-list {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .journey-input-grid,
+    .strategy-input-grid,
+    .analysis-input-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .result-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .scenario-card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .impact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .chart-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .analysis-tool-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .tool-kpi-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .debt-row {
+        grid-template-columns: 1.1fr 0.7fr 0.8fr auto;
+        align-items: end;
+    }
+}

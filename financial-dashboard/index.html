@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unified Financial Planning Dashboard | Trusted Cash Loans</title>
+<meta name="description" content="Unified financial dashboard for Canadians to estimate loan payments, compare repayment paths, stress test affordability, and decide next steps before applying.">
+<meta name="keywords" content="financial dashboard canada, loan planning dashboard, debt to income calculator, loan stress test, borrowing power estimator">
+<link rel="canonical" href="https://trustedcashloans.ca/financial-dashboard/">
+<link rel="icon" href="/assets/images/trusted-cash-loans-logo.png">
+<link rel="stylesheet" href="/assets/style/style.css">
+<link rel="stylesheet" href="/financial-dashboard/dashboard.css">
+<script src="/assets/scripts/script.js" defer></script>
+<script src="/financial-dashboard/dashboard.js" defer></script>
+</head>
+<body class="page-dashboard">
+<header>
+  <div class="container nav">
+    <a href="/" class="brand-mark"><img src="/assets/images/trusted-cash-loans-logo.png" alt="Trusted Cash Loans logo" class="brand-mark-logo" height="34"><span>Trusted Cash Loans</span></a>
+    <div class="nav-links">
+      <a href="/loan-tools/">Tools</a>
+      <a href="/loan-calculator/">Loan Calculator</a>
+      <a href="/financial-tools/">Financial Tools</a>
+      <a href="/learn/">Guides</a>
+      <a href="/apply/">Apply</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero dashboard-hero">
+    <div class="container">
+      <p class="dashboard-eyebrow">Trusted Cash Loans Planning Intelligence</p>
+      <h1>Unified Financial Planning Dashboard</h1>
+      <p class="dashboard-subheadline">Estimate payments, compare repayment paths, test financial impact, and plan your next borrowing move with more confidence.</p>
+      <p class="dashboard-copy">This dashboard helps Canadians understand borrowing risk, repayment tradeoffs, and affordability before submitting any loan application.</p>
+      <div class="cta-group dashboard-cta-group">
+        <a href="#primary-calculator" class="btn btn-primary">Start My Estimate</a>
+        <a href="#path-explorer" class="btn btn-secondary">Explore Financial Paths</a>
+      </div>
+      <div class="dashboard-trust-strip" aria-label="Trust highlights">
+        <p>Secure calculations</p>
+        <p>No credit check required for estimates</p>
+        <p>Canadian loan planning tools</p>
+        <p>Real-time repayment modeling</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dashboard-workspace">
+    <div class="container workspace-grid">
+      <div class="workspace-controls">
+        <section class="dashboard-module" id="primary-calculator" aria-labelledby="primaryCalcTitle">
+          <h2 id="primaryCalcTitle">Primary Loan Calculator</h2>
+          <p>Adjust sliders first, then refine with direct values.</p>
+          <form class="dashboard-form" id="primaryCalcForm" aria-label="Primary loan calculator">
+            <label class="slider-field" for="loanAmount">
+              <span>Loan amount</span>
+              <strong id="loanAmountValue">$18,000</strong>
+              <input type="range" id="loanAmount" min="500" max="150000" step="100" value="18000">
+            </label>
+            <label class="slider-field" for="apr">
+              <span>Interest rate (APR)</span>
+              <strong id="aprValue">11.2%</strong>
+              <input type="range" id="apr" min="1" max="35" step="0.1" value="11.2">
+            </label>
+            <label class="slider-field" for="termMonths">
+              <span>Loan term</span>
+              <strong id="termValue">48 months</strong>
+              <input type="range" id="termMonths" min="6" max="120" step="1" value="48">
+            </label>
+            <div class="field-grid two-col">
+              <label for="startMonth">Start month
+                <input type="month" id="startMonth" required>
+              </label>
+              <label for="loanPurpose">Loan purpose
+                <select id="loanPurpose">
+                  <option value="personal">Personal loan</option>
+                  <option value="emergency">Emergency loan</option>
+                  <option value="debt-consolidation">Debt consolidation</option>
+                  <option value="auto">Auto loan</option>
+                  <option value="bad-credit">Bad credit loan</option>
+                  <option value="home-improvement">Home improvement</option>
+                  <option value="medical">Medical expenses</option>
+                  <option value="moving">Moving expenses</option>
+                </select>
+              </label>
+            </div>
+            <label class="slider-field" for="extraPayment">
+              <span>Extra monthly payment</span>
+              <strong id="extraPaymentValue">$100</strong>
+              <input type="range" id="extraPayment" min="0" max="2000" step="25" value="100">
+            </label>
+          </form>
+          <div class="module-kpi-grid" aria-live="polite">
+            <article class="kpi-card"><p>Monthly payment</p><strong id="primaryMonthlyPayment">$0</strong></article>
+            <article class="kpi-card"><p>Total repayment</p><strong id="primaryTotalRepayment">$0</strong></article>
+            <article class="kpi-card"><p>Total interest</p><strong id="primaryTotalInterest">$0</strong></article>
+            <article class="kpi-card"><p>Payoff date</p><strong id="primaryPayoffDate">-</strong></article>
+          </div>
+          <div class="principal-interest-split">
+            <article class="split-item"><p>Principal portion</p><strong id="principalPortion">0%</strong></article>
+            <article class="split-item"><p>Interest portion</p><strong id="interestPortion">0%</strong></article>
+          </div>
+        </section>
+
+        <details class="dashboard-mobile-toggle" open>
+          <summary>Repayment strategy comparison</summary>
+          <section class="dashboard-module" id="strategy-comparison" aria-labelledby="strategyTitle">
+            <h2 id="strategyTitle">Repayment Strategy Comparison</h2>
+            <div class="strategy-grid" id="strategyGrid">
+              <article class="strategy-card" data-strategy="balanced">
+                <h3>Balanced Term</h3>
+                <ul>
+                  <li><span>Monthly payment</span><strong data-field="monthly">-</strong></li>
+                  <li><span>Total interest</span><strong data-field="interest">-</strong></li>
+                  <li><span>Loan duration</span><strong data-field="duration">-</strong></li>
+                </ul>
+                <p class="strategy-tradeoff">Balanced affordability with moderate total interest.</p>
+              </article>
+              <article class="strategy-card" data-strategy="lower">
+                <h3>Lower Payment</h3>
+                <ul>
+                  <li><span>Monthly payment</span><strong data-field="monthly">-</strong></li>
+                  <li><span>Total interest</span><strong data-field="interest">-</strong></li>
+                  <li><span>Loan duration</span><strong data-field="duration">-</strong></li>
+                </ul>
+                <p class="strategy-tradeoff">Reduces monthly burden, increases total borrowing cost.</p>
+              </article>
+              <article class="strategy-card" data-strategy="faster">
+                <h3>Faster Payoff</h3>
+                <ul>
+                  <li><span>Monthly payment</span><strong data-field="monthly">-</strong></li>
+                  <li><span>Total interest</span><strong data-field="interest">-</strong></li>
+                  <li><span>Loan duration</span><strong data-field="duration">-</strong></li>
+                </ul>
+                <p class="strategy-tradeoff">Higher payment now, less interest and shorter payoff.</p>
+              </article>
+            </div>
+            <p class="helper-text" id="strategyRecommendationText">Recommendation updates automatically from affordability and cost tradeoffs.</p>
+          </section>
+        </details>
+
+        <details class="dashboard-mobile-toggle" open>
+          <summary>Financial health and affordability</summary>
+          <section class="dashboard-module" id="health-affordability" aria-labelledby="healthTitle">
+            <h2 id="healthTitle">Financial Health And Affordability</h2>
+            <div class="health-grid">
+              <article class="health-card">
+                <h3>Debt-to-income ratio</h3>
+                <div class="meter"><span id="dtiMeterBar"></span></div>
+                <strong id="healthDtiValue">0%</strong>
+                <p>Debt share of gross monthly income including this loan payment.</p>
+                <span class="status-chip" id="dtiChip">Safe</span>
+              </article>
+              <article class="health-card">
+                <h3>Affordability meter</h3>
+                <div class="meter"><span id="affordabilityMeterBar"></span></div>
+                <strong id="affordabilityValue">-</strong>
+                <p>How comfortably your current budget supports the selected loan.</p>
+                <span class="status-chip" id="affordabilityChip">-</span>
+              </article>
+              <article class="health-card">
+                <h3>Recommended loan range</h3>
+                <strong id="recommendedRange">-</strong>
+                <p>Estimated safer borrowing range from current income, expenses, and debt load.</p>
+                <span class="status-chip" id="rangeChip">Moderate</span>
+              </article>
+              <article class="health-card">
+                <h3>Financial health score</h3>
+                <div class="meter"><span id="healthMeterBar"></span></div>
+                <strong id="healthScore">0</strong>
+                <p>Composite indicator blending DTI pressure, interest burden, and payment flexibility.</p>
+                <span class="status-chip" id="healthChip">-</span>
+              </article>
+            </div>
+          </section>
+        </details>
+
+        <details class="dashboard-mobile-toggle" open>
+          <summary>Stress test and shock simulator</summary>
+          <section class="dashboard-module" id="stress-shock" aria-labelledby="stressTitle">
+            <h2 id="stressTitle">Loan Stress Test And Shock Simulator</h2>
+            <div class="tool-two-col">
+              <article class="tool-card">
+                <h3>Loan Stress Test</h3>
+                <div class="field-grid">
+                  <label for="monthlyIncome">Monthly income
+                    <input id="monthlyIncome" type="number" min="0" step="50" value="6200">
+                  </label>
+                  <label for="livingExpenses">Living expenses
+                    <input id="livingExpenses" type="number" min="0" step="50" value="3200">
+                  </label>
+                  <label for="existingDebtPayment">Existing debt payments
+                    <input id="existingDebtPayment" type="number" min="0" step="25" value="650">
+                  </label>
+                  <label for="savingsBalance">Savings balance
+                    <input id="savingsBalance" type="number" min="0" step="100" value="8500">
+                  </label>
+                </div>
+                <div class="tool-output-grid">
+                  <article class="kpi-card"><p>DTI ratio</p><strong id="stressDti">0%</strong></article>
+                  <article class="kpi-card"><p>Loan stress level</p><strong id="stressLevel">-</strong></article>
+                  <article class="kpi-card"><p>Recommendation</p><strong id="stressRecommendation">-</strong></article>
+                </div>
+              </article>
+
+              <article class="tool-card">
+                <h3>Shock Simulator</h3>
+                <div class="field-grid">
+                  <label for="shockRateIncrease">Interest rate increase (%)
+                    <input id="shockRateIncrease" type="number" min="0" max="15" step="0.1" value="1.5">
+                  </label>
+                  <label for="shockIncomeDrop">Income drop (monthly)
+                    <input id="shockIncomeDrop" type="number" min="0" step="50" value="300">
+                  </label>
+                  <label for="shockOneTimeExpense">Unexpected one-time expense
+                    <input id="shockOneTimeExpense" type="number" min="0" step="50" value="800">
+                  </label>
+                  <label for="shockRecurringExpense">Extra recurring expense
+                    <input id="shockRecurringExpense" type="number" min="0" step="25" value="150">
+                  </label>
+                </div>
+                <div class="before-after-grid" aria-live="polite">
+                  <article><h4>Before</h4><p>Monthly payment: <strong id="beforeMonthly">-</strong></p><p>DTI: <strong id="beforeDti">-</strong></p><p>Health: <strong id="beforeHealth">-</strong></p></article>
+                  <article><h4>After shock</h4><p>Monthly payment: <strong id="afterMonthly">-</strong></p><p>DTI: <strong id="afterDti">-</strong></p><p>Health: <strong id="afterHealth">-</strong></p></article>
+                </div>
+                <p class="helper-text" id="shockRiskSummary">Risk summary updates after each shock input change.</p>
+              </article>
+            </div>
+          </section>
+        </details>
+
+        <details class="dashboard-mobile-toggle" open>
+          <summary>Financial Path Explorer</summary>
+          <section class="dashboard-module" id="path-explorer" aria-labelledby="pathTitle">
+            <h2 id="pathTitle">Financial Path Explorer</h2>
+            <p>Toggle paths on or off to compare realistic alternatives side by side.</p>
+            <div class="path-toggle-grid" id="pathToggleGrid">
+              <label><input type="checkbox" data-path-toggle="standard" checked> Standard loan repayment</label>
+              <label><input type="checkbox" data-path-toggle="extra" checked> Loan + extra monthly payment</label>
+              <label><input type="checkbox" data-path-toggle="shorter" checked> Shorter term repayment</label>
+              <label><input type="checkbox" data-path-toggle="longer" checked> Longer term repayment</label>
+              <label><input type="checkbox" data-path-toggle="delay" checked> Delay borrowing and save first</label>
+              <label><input type="checkbox" data-path-toggle="consolidation" checked> Debt consolidation instead</label>
+            </div>
+            <div class="path-card-grid" id="pathCardGrid"></div>
+          </section>
+        </details>
+
+        <details class="dashboard-mobile-toggle" open>
+          <summary>Borrowing power and consolidation</summary>
+          <section class="dashboard-module" id="borrowing-power" aria-labelledby="borrowingTitle">
+            <h2 id="borrowingTitle">Borrowing Power Calculator</h2>
+            <div class="tool-output-grid">
+              <article class="kpi-card"><p>Recommended maximum loan</p><strong id="borrowingMax">-</strong></article>
+              <article class="kpi-card"><p>Comfortable monthly payment</p><strong id="borrowingComfortable">-</strong></article>
+              <article class="kpi-card"><p>Affordability classification</p><strong id="borrowingClass">-</strong></article>
+            </div>
+            <p class="helper-text">Planning estimate only. Final borrowing approval depends on lender underwriting and verification.</p>
+          </section>
+
+          <section class="dashboard-module" id="debt-consolidation" aria-labelledby="consolidationTitle">
+            <h2 id="consolidationTitle">Debt Consolidation Calculator</h2>
+            <p>Add your current debts to estimate consolidation tradeoffs.</p>
+            <div class="debt-rows" id="debtRows"></div>
+            <button type="button" class="add-row-btn" id="addDebtRow">Add Debt Row</button>
+            <div class="tool-output-grid">
+              <article class="kpi-card"><p>Current monthly debt payment</p><strong id="consolidationCurrentPayment">-</strong></article>
+              <article class="kpi-card"><p>Estimated consolidated payment</p><strong id="consolidationEstimatedPayment">-</strong></article>
+              <article class="kpi-card"><p>Monthly savings</p><strong id="consolidationMonthlySavings">-</strong></article>
+              <article class="kpi-card"><p>Estimated interest savings</p><strong id="consolidationInterestSavings">-</strong></article>
+            </div>
+          </section>
+        </details>
+      </div>
+
+      <aside class="workspace-results">
+        <section class="dashboard-snapshot-panel" id="desktopSnapshotPanel" aria-labelledby="snapshotTitle">
+          <div class="section-head-row">
+            <h2 id="snapshotTitle">Financial Snapshot</h2>
+            <p class="section-head-note">Live summary from all tools in this dashboard.</p>
+          </div>
+          <div class="snapshot-grid" id="snapshotGrid" aria-live="polite">
+            <article class="snapshot-card"><p>Monthly payment</p><strong id="snapshotMonthlyPayment">$0</strong></article>
+            <article class="snapshot-card"><p>Total repayment</p><strong id="snapshotTotalRepayment">$0</strong></article>
+            <article class="snapshot-card"><p>Total interest</p><strong id="snapshotTotalInterest">$0</strong></article>
+            <article class="snapshot-card"><p>Payoff date</p><strong id="snapshotPayoffDate">-</strong></article>
+            <article class="snapshot-card"><p>Debt-to-income ratio</p><strong id="snapshotDti">0.0%</strong></article>
+            <article class="snapshot-card"><p>Financial health score</p><strong id="snapshotHealth">0</strong></article>
+            <article class="snapshot-card"><p>Loan stress level</p><strong id="snapshotStress">-</strong></article>
+          </div>
+          <article class="chart-card snapshot-chart-card">
+            <h3>Loan Balance Over Time</h3>
+            <canvas id="snapshotTrendChart" width="420" height="220" role="img" aria-label="Loan balance over time chart"></canvas>
+          </article>
+        </section>
+      </aside>
+    </div>
+  </section>
+
+  <section class="mobile-snapshot-bar" id="mobileSnapshotBar" aria-live="polite">
+    <button type="button" class="mobile-snapshot-toggle" id="mobileSnapshotToggle" aria-expanded="false" aria-controls="mobileSnapshotDetails">
+      <span>Snapshot</span>
+      <strong id="mobileSnapshotMonthlyPayment">$0/mo</strong>
+      <span class="mobile-snapshot-quick">Health <strong id="mobileSnapshotHealth">0</strong></span>
+    </button>
+    <div class="mobile-snapshot-details" id="mobileSnapshotDetails" hidden>
+      <div class="snapshot-grid">
+        <article class="snapshot-card"><p>Monthly payment</p><strong id="mobileMonthlyPayment">$0</strong></article>
+        <article class="snapshot-card"><p>Total repayment</p><strong id="mobileTotalRepayment">$0</strong></article>
+        <article class="snapshot-card"><p>Total interest</p><strong id="mobileTotalInterest">$0</strong></article>
+        <article class="snapshot-card"><p>Payoff date</p><strong id="mobilePayoffDate">-</strong></article>
+        <article class="snapshot-card"><p>Debt-to-income ratio</p><strong id="mobileDti">0.0%</strong></article>
+        <article class="snapshot-card"><p>Financial health score</p><strong id="mobileHealth">0</strong></article>
+        <article class="snapshot-card"><p>Loan stress level</p><strong id="mobileStress">-</strong></article>
+      </div>
+      <article class="chart-card snapshot-chart-card">
+        <h3>Loan Balance Trend</h3>
+        <canvas id="mobileSnapshotTrendChart" width="360" height="160" role="img" aria-label="Mobile loan balance trend chart"></canvas>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="relatedToolsTitle">
+    <div class="container">
+      <h2 id="relatedToolsTitle">Related Tools And Next Steps</h2>
+      <div class="related-grid">
+        <article class="card"><h3><a href="/loan-amount/">Loan Amount Pages</a></h3><p>Explore payment examples by specific borrowing amounts.</p></article>
+        <article class="card"><h3><a href="/provinces/">Province Pages</a></h3><p>Review location-specific borrowing information across Canada.</p></article>
+        <article class="card"><h3><a href="/learn/">Educational Guides</a></h3><p>Learn repayment math, risk factors, and affordability concepts.</p></article>
+        <article class="card"><h3><a href="/debt-payoff-calculator/">Debt Payoff Calculator</a></h3><p>Project debt-free timelines with additional payment scenarios.</p></article>
+        <article class="card"><h3><a href="/budget-planner/">Budget Planner</a></h3><p>Build monthly cash-flow plans before committing to new debt.</p></article>
+        <article class="card"><h3><a href="/savings-growth-calculator/">Savings Calculator</a></h3><p>Model reserve growth and emergency fund targets.</p></article>
+        <article class="card"><h3><a href="/loan-tools/">Tool Hub</a></h3><p>Access the complete planning ecosystem.</p></article>
+        <article class="card"><h3><a href="/loan-scenario-simulator/">Financial Path Explorer Page</a></h3><p>Run deeper scenario analysis with guided step-by-step flows.</p></article>
+        <article class="card"><h3><a href="/loan-comparison-hub/">Loan Strategy Scenario Hub</a></h3><p>Compare borrowing options and repayment strategies.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section final-cta-section" aria-labelledby="finalCtaTitle">
+    <div class="container final-cta-card">
+      <h2 id="finalCtaTitle">Ready to move forward with a clearer plan?</h2>
+      <p>Use your estimate, repayment strategy, and financial snapshot to decide your next step with more confidence.</p>
+      <div class="cta-group">
+        <a href="/apply/" class="btn btn-primary">Check Loan Options</a>
+        <button type="button" class="btn btn-secondary" id="saveResultsBtn">Save My Results</button>
+        <button type="button" class="btn btn-secondary" id="recalculateBtn">Recalculate My Plan</button>
+      </div>
+      <p class="helper-text" id="saveMessage" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faqTitle">
+    <div class="container">
+      <h2 id="faqTitle">Financial Planning FAQ</h2>
+      <div class="faq-grid">
+        <article class="card"><h3>How are loan payments calculated?</h3><p>Monthly payments use a standard amortization formula based on principal, APR, and repayment term in months.</p></article>
+        <article class="card"><h3>What is debt-to-income ratio?</h3><p>Debt-to-income ratio is the percentage of gross monthly income used by debt payments, including the new loan.</p></article>
+        <article class="card"><h3>Does adding extra payments reduce interest?</h3><p>Yes. Extra principal payments usually shorten the term and reduce total interest paid over the life of the loan.</p></article>
+        <article class="card"><h3>How does a longer term change total repayment?</h3><p>A longer term often lowers monthly payment but increases total interest and overall repayment cost.</p></article>
+        <article class="card"><h3>Can I estimate borrowing power before applying?</h3><p>Yes. Borrowing power estimates can help set a realistic range before lender underwriting or credit review.</p></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="boss-footer" aria-label="Trusted Cash Loans platform footer">
+    <section class="boss-footer-layer boss-footer-cta">
+        <div class="container boss-footer-cta-grid">
+            <div>
+                <p class="boss-footer-eyebrow">Next Step</p>
+                <h2>Run the Numbers. Then Move with Confidence.</h2>
+                <p>Use the payment engine to stress-test your loan strategy, or jump into your dashboard to compare scenarios and funding timelines.</p>
+            </div>
+            <div class="boss-footer-cta-actions">
+                <a class="btn btn-primary fintech-btn" href="#calculator">Calculate Payments</a>
+                <a class="btn btn-secondary fintech-btn" href="/financial-dashboard/">Explore Dashboard</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="boss-footer-layer boss-footer-tools">
+        <div class="container">
+            <h2>Financial Tools</h2>
+            <div class="boss-tools-grid">
+                <a class="boss-tool-link" href="/loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">∑</span><span>Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/debt-consolidation-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">⇄</span><span>Debt Consolidation Calculator</span></a>
+                <a class="boss-tool-link" href="/bad-credit-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">%</span><span>Bad Credit Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/emergency-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">!</span><span>Emergency Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/auto-loan-calculator/"><span class="boss-tool-icon" aria-hidden="true">▣</span><span>Auto Loan Calculator</span></a>
+                <a class="boss-tool-link" href="/budget-planner/"><span class="boss-tool-icon" aria-hidden="true">⌁</span><span>Budget Planner</span></a>
+                <a class="boss-tool-link" href="/debt-payoff-calculator/"><span class="boss-tool-icon" aria-hidden="true">↘</span><span>Debt Payoff Calculator</span></a>
+                <a class="boss-tool-link" href="/savings-growth-calculator/"><span class="boss-tool-icon" aria-hidden="true">↗</span><span>Savings Growth Calculator</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="boss-footer-layer boss-footer-mega-links">
+        <div class="container boss-mega-grid">
+            <nav aria-label="Loan calculators">
+                <h3>Loan Calculators</h3>
+                <ul>
+                    <li><a href="/loan-calculator/">Personal Loan Calculator</a></li>
+                    <li><a href="/auto-loan-calculator/">Auto Loan Calculator</a></li>
+                    <li><a href="/bad-credit-loan-calculator/">Bad Credit Loan Calculator</a></li>
+                    <li><a href="/emergency-loan-calculator/">Emergency Loan Calculator</a></li>
+                    <li><a href="/mortgage-payment-calculator/">Mortgage Payment Calculator</a></li>
+                    <li><a href="/debt-consolidation-loan-calculator/">Debt Consolidation Calculator</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Loan guides">
+                <h3>Loan Guides</h3>
+                <ul>
+                    <li><a href="/learn/">Learning Center</a></li>
+                    <li><a href="/loan-approval-checklist/">Loan Approval Checklist</a></li>
+                    <li><a href="/loan-application-timeline/">Application Timeline Guide</a></li>
+                    <li><a href="/loan-glossary/">Loan Glossary</a></li>
+                    <li><a href="/borrowing-mistakes/">Borrowing Mistakes to Avoid</a></li>
+                    <li><a href="/real-user-stories/">Real Borrower Stories</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Province pages">
+                <h3>Province Pages</h3>
+                <ul>
+                    <li><a href="/provinces/">All Provinces</a></li>
+                    <li><a href="/loans-in/">Loans by Province</a></li>
+                    <li><a href="/on/">Ontario</a></li>
+                    <li><a href="/bc/">British Columbia</a></li>
+                    <li><a href="/ab/">Alberta</a></li>
+                    <li><a href="/qc/">Quebec</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Financial tools">
+                <h3>Financial Tools</h3>
+                <ul>
+                    <li><a href="/loan-tools/">Tools Hub</a></li>
+                    <li><a href="/interest-comparison-calculator/">Interest Comparison Calculator</a></li>
+                    <li><a href="/refinance-calculator/">Refinance Calculator</a></li>
+                    <li><a href="/borrowing-power-calculator/">Borrowing Power Calculator</a></li>
+                    <li><a href="/investment-return-calculator/">Investment Return Calculator</a></li>
+                    <li><a href="/loan-scenario-simulator/">Loan Scenario Simulator</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Platform links">
+                <h3>Platform Links</h3>
+                <ul>
+                    <li><a href="/financial-dashboard/">Financial Dashboard</a></li>
+                    <li><a href="/loan-data-hub/">Loan Data Hub</a></li>
+                    <li><a href="/example-payments/">Example Payments</a></li>
+                    <li><a href="/apply/">Secure Application</a></li>
+                    <li><a href="/trust/">Trust Center</a></li>
+                    <li><a href="/contact/">Contact Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <section class="boss-footer-layer boss-footer-legal">
+        <div class="container boss-legal-grid">
+            <a href="/" class="brand-mark footer-logo-link"><img src="/assets/images/trusted-cash-loans-logo.png" alt="Trusted Cash Loans bird logo" class="footer-logo"><span>Trusted Cash Loans</span></a>
+            <p>© 2026 Trusted Cash Loans. Estimates are for planning only and do not guarantee approval, rates, or lender terms.</p>
+            <p class="boss-legal-links"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a><a href="/trust/">Trust</a><a href="/about/">About</a><a href="/contact/">Contact</a></p>
+        </div>
+    </section>
+</footer>
+<a class="sticky-cta" href="/apply/">Check Loan Options</a>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Unified Financial Planning Dashboard","description":"Interactive dashboard for Canadian loan planning, repayment strategy comparison, stress testing, and affordability analysis.","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://trustedcashloans.ca/financial-dashboard/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How are loan payments calculated?","acceptedAnswer":{"@type":"Answer","text":"Monthly payments use a standard amortization formula based on principal, APR, and repayment term in months."}},{"@type":"Question","name":"What is debt-to-income ratio?","acceptedAnswer":{"@type":"Answer","text":"Debt-to-income ratio is the percentage of gross monthly income used by debt payments, including the new loan."}},{"@type":"Question","name":"Does adding extra payments reduce interest?","acceptedAnswer":{"@type":"Answer","text":"Yes. Extra principal payments usually shorten the term and reduce total interest paid over the life of the loan."}},{"@type":"Question","name":"How does a longer term change total repayment?","acceptedAnswer":{"@type":"Answer","text":"A longer term often lowers monthly payment but increases total interest and overall repayment cost."}},{"@type":"Question","name":"Can I estimate borrowing power before applying?","acceptedAnswer":{"@type":"Answer","text":"Yes. Borrowing power estimates can help set a realistic range before lender underwriting or credit review."}}]}</script>
+</body>
+</html>
