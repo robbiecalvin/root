@@ -411,6 +411,8 @@
                 toggle.setAttribute("aria-label", "Switch to " + nextTheme + " mode");
                 toggle.setAttribute("data-next-theme", nextTheme);
             }
+
+            window.dispatchEvent(new Event("themechange"));
         }
 
         if (!toggle && nav) {
@@ -523,6 +525,11 @@
         var scenarioFasterDuration = document.getElementById("scenarioFasterDuration");
         var chartAnimationToken = 0;
 
+        function isLightTheme() {
+            return document.documentElement.getAttribute("data-theme") === "light" ||
+                document.body.getAttribute("data-theme") === "light";
+        }
+
         if (
             !amountRange ||
             !aprRange ||
@@ -624,12 +631,14 @@
             var innerRadius = radius * 0.62;
             var total = Math.max(1, principal + interest);
             var principalAngle = (Math.PI * 2 * principal) / total;
+            var ringBase = isLightTheme() ? "rgba(46,140,255,0.14)" : "rgba(46,140,255,0.2)";
+            var innerColor = isLightTheme() ? "rgba(247,251,255,0.98)" : "rgba(14,21,31,0.98)";
 
             ctx.clearRect(0, 0, width, height);
 
             ctx.beginPath();
             ctx.moveTo(centerX, centerY);
-            ctx.fillStyle = "rgba(46,140,255,0.2)";
+            ctx.fillStyle = ringBase;
             ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
             ctx.fill();
 
@@ -648,7 +657,7 @@
             ctx.fill();
 
             ctx.beginPath();
-            ctx.fillStyle = "rgba(14,21,31,0.98)";
+            ctx.fillStyle = innerColor;
             ctx.arc(centerX, centerY, innerRadius, 0, Math.PI * 2);
             ctx.fill();
         }
@@ -665,6 +674,8 @@
             var ySpan = height - topPad - bottomPad;
             var maxY = Math.max(principal, totalInterest, 1);
             var pointsToRender = Math.max(2, Math.round(schedule.length * progress));
+            var chartBackground = isLightTheme() ? "rgba(247,251,255,0.98)" : "rgba(11,19,32,0.9)";
+            var axisColor = isLightTheme() ? "rgba(90,116,153,0.35)" : "rgba(147,176,217,0.25)";
 
             function getX(index) {
                 return leftPad + (index / Math.max(1, schedule.length - 1)) * xSpan;
@@ -692,10 +703,10 @@
             }
 
             ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = "rgba(11,19,32,0.9)";
+            ctx.fillStyle = chartBackground;
             ctx.fillRect(0, 0, width, height);
 
-            ctx.strokeStyle = "rgba(147,176,217,0.25)";
+            ctx.strokeStyle = axisColor;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(leftPad, topPad);
@@ -815,6 +826,7 @@
             input.addEventListener("input", recalculate);
             input.addEventListener("change", recalculate);
         });
+        window.addEventListener("themechange", recalculate);
 
         recalculate();
     }
@@ -1948,6 +1960,11 @@
         var consolidatedPaymentOutput = document.getElementById("fsConsolidatedPayment");
         var consolidationSavingsOutput = document.getElementById("fsConsolidationSavings");
 
+        function isLightTheme() {
+            return document.documentElement.getAttribute("data-theme") === "light" ||
+                document.body.getAttribute("data-theme") === "light";
+        }
+
         if (
             !form || !amountInput || !rateInput || !termInput || !startMonthInput || !extraInput ||
             !incomeInput || !expensesInput || !existingDebtInput || !rateIncreaseInput || !incomeDropInput ||
@@ -2103,9 +2120,11 @@
             height = pieChart.height;
             total = Math.max(1, principal + totalInterest);
             principalAngle = (principal / total) * Math.PI * 2;
+            var chartBackground = isLightTheme() ? "rgba(247,251,255,0.98)" : "rgba(11, 19, 32, 1)";
+            var labelColor = isLightTheme() ? "#2a3f5f" : "#d2dceb";
 
             ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = "rgba(11, 19, 32, 1)";
+            ctx.fillStyle = chartBackground;
             ctx.fillRect(0, 0, width, height);
 
             ctx.beginPath();
@@ -2122,7 +2141,7 @@
             ctx.fillStyle = "#f59e0b";
             ctx.fill();
 
-            ctx.fillStyle = "#d2dceb";
+            ctx.fillStyle = labelColor;
             ctx.font = "600 13px Manrope";
             ctx.fillText("Principal", 16, height - 36);
             ctx.fillText("Interest", 16, height - 16);
@@ -2144,6 +2163,8 @@
             var ySpan;
             var maxMonths;
             var maxBalance;
+            var chartBackground;
+            var axisColor;
 
             if (!payoffChart || !payoffChart.getContext) {
                 return;
@@ -2160,6 +2181,8 @@
                 baseTimeline.reduce(function (maxValue, row) { return Math.max(maxValue, row.balance); }, 0),
                 extraTimeline.reduce(function (maxValue, row) { return Math.max(maxValue, row.balance); }, 0)
             );
+            chartBackground = isLightTheme() ? "rgba(247,251,255,0.98)" : "rgba(11, 19, 32, 1)";
+            axisColor = isLightTheme() ? "rgba(90,116,153,0.35)" : "rgba(147,176,217,0.25)";
 
             function drawLine(timeline, color) {
                 ctx.strokeStyle = color;
@@ -2182,9 +2205,9 @@
             }
 
             ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = "rgba(11, 19, 32, 1)";
+            ctx.fillStyle = chartBackground;
             ctx.fillRect(0, 0, width, height);
-            ctx.strokeStyle = "rgba(147,176,217,0.25)";
+            ctx.strokeStyle = axisColor;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(leftPad, topPad);
@@ -2738,6 +2761,7 @@
         }
 
         form.addEventListener("input", recalculate);
+        window.addEventListener("themechange", recalculate);
         recalculate();
     }
 
@@ -3047,21 +3071,6 @@
         var primaryCta = document.querySelector(".btn.btn-primary");
         var sticky = document.querySelector(".sticky-cta");
 
-        function funnelMarkup() {
-            return (
-                '<div class="container">' +
-                "  <h2>Conversion Funnel</h2>" +
-                '  <div class="funnel-grid">' +
-                '    <article class="funnel-stage"><p class="funnel-stage-label">Top Funnel</p><p class="funnel-stage-step">Calculate My Payment</p></article>' +
-                '    <article class="funnel-stage"><p class="funnel-stage-label">Mid Funnel</p><p class="funnel-stage-step">Compare Loan Scenarios</p></article>' +
-                '    <article class="funnel-stage"><p class="funnel-stage-label">Lower Funnel</p><p class="funnel-stage-step">Evaluate Financial Impact</p></article>' +
-                '    <article class="funnel-stage"><p class="funnel-stage-label">Bottom Funnel</p><p class="funnel-stage-step">Check Loan Options</p></article>' +
-                '    <article class="funnel-stage funnel-stage-final"><p class="funnel-stage-label">Final Conversion</p><a href="/apply/" class="funnel-stage-step funnel-stage-link">Start Application</a></article>' +
-                "  </div>" +
-                "</div>"
-            );
-        }
-
         function trustMarkup() {
             return (
                 '<div class="container trust-grid">' +
@@ -3090,28 +3099,16 @@
             );
         }
 
-        if (hero && !funnelStrip) {
-            funnelStrip = document.createElement("section");
-            funnelStrip.className = "conversion-funnel";
-            funnelStrip.setAttribute("aria-label", "Conversion funnel");
-            hero.insertAdjacentElement("afterend", funnelStrip);
-        }
-
         if (funnelStrip) {
-            funnelStrip.className = "conversion-funnel";
-            funnelStrip.setAttribute("aria-label", "Conversion funnel");
-            funnelStrip.innerHTML = funnelMarkup();
+            funnelStrip.remove();
+            funnelStrip = null;
         }
 
         if (hero && !trustStrip) {
             trustStrip = document.createElement("section");
             trustStrip.className = "trust-strip";
             trustStrip.setAttribute("aria-label", "Trust signals");
-            if (funnelStrip) {
-                funnelStrip.insertAdjacentElement("afterend", trustStrip);
-            } else {
-                hero.insertAdjacentElement("afterend", trustStrip);
-            }
+            hero.insertAdjacentElement("afterend", trustStrip);
         }
 
         if (trustStrip) {
@@ -3126,8 +3123,6 @@
             timelineStrip.setAttribute("aria-label", "Application timeline");
             if (trustStrip) {
                 trustStrip.insertAdjacentElement("afterend", timelineStrip);
-            } else if (funnelStrip) {
-                funnelStrip.insertAdjacentElement("afterend", timelineStrip);
             } else {
                 hero.insertAdjacentElement("afterend", timelineStrip);
             }

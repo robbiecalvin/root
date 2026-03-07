@@ -2906,6 +2906,261 @@ body.page-home {
     margin: 0.65rem auto 0;
 }
 
+/* Conversion funnel copy removed site-wide */
+.conversion-funnel {
+    display: none !important;
+}
+
+/* Light mode readability overrides for dark hardcoded panels */
+html[data-theme="light"] .trust-strip,
+html[data-theme="light"] .how-it-works-strip,
+body[data-theme="light"] .trust-strip,
+body[data-theme="light"] .how-it-works-strip {
+    background: rgba(233, 240, 251, 0.88);
+}
+
+html[data-theme="light"] .trust-item,
+html[data-theme="light"] .step-card,
+body[data-theme="light"] .trust-item,
+body[data-theme="light"] .step-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(16, 34, 63, 0.14);
+    color: var(--text-body);
+}
+
+html[data-theme="light"] .table-wrap,
+html[data-theme="light"] .data-table th,
+html[data-theme="light"] .meter-text,
+body[data-theme="light"] .table-wrap,
+body[data-theme="light"] .data-table th,
+body[data-theme="light"] .meter-text {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+html[data-theme="light"] .table-wrap,
+html[data-theme="light"] .meter-text,
+body[data-theme="light"] .table-wrap,
+body[data-theme="light"] .meter-text {
+    border-color: rgba(16, 34, 63, 0.14);
+}
+
+html[data-theme="light"] .data-table th,
+body[data-theme="light"] .data-table th {
+    color: #1e304a;
+}
+
+html[data-theme="light"] body.page-home,
+body[data-theme="light"].page-home {
+    --home-panel: rgba(255, 255, 255, 0.95);
+}
+
+html[data-theme="light"] .page-home .slider-row,
+html[data-theme="light"] .page-home .fintech-results-panel,
+html[data-theme="light"] .page-home .mobile-result-card,
+html[data-theme="light"] .page-home .loan-timeline-horizontal,
+html[data-theme="light"] .page-home .timeline-node,
+body[data-theme="light"] .page-home .slider-row,
+body[data-theme="light"] .page-home .fintech-results-panel,
+body[data-theme="light"] .page-home .mobile-result-card,
+body[data-theme="light"] .page-home .loan-timeline-horizontal,
+body[data-theme="light"] .page-home .timeline-node {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(16, 34, 63, 0.14);
+    color: var(--text-body);
+}
+
+html[data-theme="light"] .page-home .timeline-arrow,
+body[data-theme="light"] .page-home .timeline-arrow {
+    color: #2f7bff;
+}
+
+html[data-theme="light"] footer.boss-footer,
+body[data-theme="light"] footer.boss-footer {
+    border-top-color: rgba(16, 34, 63, 0.16);
+    background:
+        linear-gradient(180deg, rgba(242, 247, 255, 0.98), rgba(236, 243, 255, 0.98)),
+        radial-gradient(circle at 10% -10%, rgba(46, 140, 255, 0.1), transparent 45%);
+    color: #1f3556;
+}
+
+html[data-theme="light"] .boss-footer .boss-footer-layer,
+body[data-theme="light"] .boss-footer .boss-footer-layer {
+    border-top-color: rgba(16, 34, 63, 0.12);
+}
+
+html[data-theme="light"] .boss-footer-eyebrow,
+body[data-theme="light"] .boss-footer-eyebrow {
+    color: #3a74d9;
+}
+
+html[data-theme="light"] .boss-footer-cta p,
+html[data-theme="light"] .boss-mega-grid a,
+html[data-theme="light"] .boss-legal-links a,
+body[data-theme="light"] .boss-footer-cta p,
+body[data-theme="light"] .boss-mega-grid a,
+body[data-theme="light"] .boss-legal-links a {
+    color: #385172;
+}
+
+html[data-theme="light"] .boss-mega-grid nav h3,
+body[data-theme="light"] .boss-mega-grid nav h3 {
+    color: #1f3556;
+}
+
+html[data-theme="light"] .boss-tool-link,
+body[data-theme="light"] .boss-tool-link {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1f3556;
+    border-color: rgba(16, 34, 63, 0.16);
+}
+
+html[data-theme="light"] .boss-tool-link:hover,
+html[data-theme="light"] .boss-tool-link:focus-visible,
+body[data-theme="light"] .boss-tool-link:hover,
+body[data-theme="light"] .boss-tool-link:focus-visible {
+    border-color: rgba(46, 140, 255, 0.42);
+    background: rgba(246, 250, 255, 0.98);
+}
+
+html[data-theme="light"] .boss-tool-icon,
+body[data-theme="light"] .boss-tool-icon {
+    color: #2f7bff;
+    border-color: rgba(46, 140, 255, 0.3);
+    background: rgba(237, 245, 255, 0.95);
+}
+
+html[data-theme="light"] .boss-footer-legal,
+body[data-theme="light"] .boss-footer-legal {
+    background: rgba(227, 236, 250, 0.72);
+}
+
+html[data-theme="light"] .boss-legal-grid p,
+body[data-theme="light"] .boss-legal-grid p {
+    color: #4b6589;
+}
+
+html[data-theme="light"] input,
+html[data-theme="light"] select,
+html[data-theme="light"] textarea,
+body[data-theme="light"] input,
+body[data-theme="light"] select,
+body[data-theme="light"] textarea {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-color: rgba(16, 34, 63, 0.2) !important;
+    color: #1f3556 !important;
+    color-scheme: light;
+}
+
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder,
+body[data-theme="light"] input::placeholder,
+body[data-theme="light"] textarea::placeholder {
+    color: #7086a8;
+}
+
+html[data-theme="light"] .loan-results,
+html[data-theme="light"] .approval-meter,
+html[data-theme="light"] .result-box,
+html[data-theme="light"] .chart-shell,
+html[data-theme="light"] .amortization-panel,
+html[data-theme="light"] .metric,
+body[data-theme="light"] .loan-results,
+body[data-theme="light"] .approval-meter,
+body[data-theme="light"] .result-box,
+body[data-theme="light"] .chart-shell,
+body[data-theme="light"] .amortization-panel,
+body[data-theme="light"] .metric {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(16, 34, 63, 0.14) !important;
+    color: #1f3556 !important;
+    box-shadow: 0 10px 24px rgba(34, 63, 102, 0.08);
+}
+
+html[data-theme="light"] .loan-results h3,
+html[data-theme="light"] .result-box strong,
+html[data-theme="light"] .approval-meter strong,
+body[data-theme="light"] .loan-results h3,
+body[data-theme="light"] .result-box strong,
+body[data-theme="light"] .approval-meter strong {
+    color: #1f3556 !important;
+}
+
+html[data-theme="light"] .bar-track,
+html[data-theme="light"] .meter-track,
+body[data-theme="light"] .bar-track,
+body[data-theme="light"] .meter-track {
+    background: rgba(225, 236, 251, 0.95);
+    border-color: rgba(46, 140, 255, 0.22);
+}
+
+html[data-theme="light"] .legend-item,
+html[data-theme="light"] .checklist li,
+html[data-theme="light"] .icon-list li,
+html[data-theme="light"] .timeline li,
+body[data-theme="light"] .legend-item,
+body[data-theme="light"] .checklist li,
+body[data-theme="light"] .icon-list li,
+body[data-theme="light"] .timeline li {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(16, 34, 63, 0.14);
+    color: #1f3556;
+}
+
+html[data-theme="light"] #amortizationChart,
+html[data-theme="light"] #payoffChart,
+html[data-theme="light"] #fsPieChart,
+html[data-theme="light"] #fsPayoffChart,
+html[data-theme="light"] #scChart,
+body[data-theme="light"] #amortizationChart,
+body[data-theme="light"] #payoffChart,
+body[data-theme="light"] #fsPieChart,
+body[data-theme="light"] #fsPayoffChart,
+body[data-theme="light"] #scChart {
+    background: rgba(247, 251, 255, 0.98) !important;
+    border-color: rgba(16, 34, 63, 0.14) !important;
+}
+
+html[data-theme="light"] th,
+body[data-theme="light"] th {
+    background: rgba(228, 238, 252, 0.98);
+    color: #1f3556;
+}
+
+html[data-theme="light"] .hero-visual,
+body[data-theme="light"] .hero-visual {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 249, 255, 0.98));
+    border-color: rgba(16, 34, 63, 0.14);
+}
+
+html[data-theme="light"] .hero-visual-caption,
+body[data-theme="light"] .hero-visual-caption {
+    background: rgba(237, 245, 255, 0.95);
+    color: #406089;
+}
+
+html[data-theme="light"] .hero-visual-caption strong,
+body[data-theme="light"] .hero-visual-caption strong {
+    color: #1f4f95;
+}
+
+html[data-theme="light"] .metric h3,
+body[data-theme="light"] .metric h3 {
+    color: #2f7bff !important;
+}
+
+html[data-theme="light"] .loan-results p,
+html[data-theme="light"] .form-message,
+body[data-theme="light"] .loan-results p,
+body[data-theme="light"] .form-message {
+    color: #4b6589 !important;
+}
+
+html[data-theme="light"] .progress-wrap,
+body[data-theme="light"] .progress-wrap {
+    background: rgba(225, 236, 251, 0.95);
+    border-color: rgba(16, 34, 63, 0.18);
+}
+
 @media (min-width: 680px) {
     .page-home .fintech-hero-grid {
         grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
